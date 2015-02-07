@@ -1,36 +1,19 @@
-{{outlet}}
-<header class ="site-head" class = "jumbotron">
-  <h1 id ="site-head-title">GitEasy</h1>
+<header class="site-head jumbotron">
+  <h1 id="site-head-title">GitEasy</h1>
 </header>
-<section class = "container-fluid">
-  <section class = "row">
-    <div class = "row">
-      <form>
-        <div id = "orgChooseDropdown" class = "col-sm-offset-3 col-sm-4">
-          <h4>Choose a Repository!</h4>
-          <select name = "orgChoice" selected="selected">
-            <option value="#">Repo 1</option>
-          </select>
-        </div>
-        <div class = "col-sm-offset-1 col-sm-2">
-          <input id = "submitOrg-button" type = "submit" value = "Choose Organization!" name = submitOrg!">
-        </div>
-      </form>
+
+
+<section class="container">
+  <div class="row">
+    <div class="render-repo-list">
+    {{#each}}
+      <div class="repo">
+        {{#link-to 'repo' owner.login name}}
+          <h3>{{name}}</h3>
+          <p>{{description}}</p>
+        {{/link-to}}
+      </div>
+    {{/each}}
     </div>
-  </section>
-  <section class = "row">
-    <div class = "row">
-      <form>
-        <div id = "repoChooseDropdown" class = "col-sm-offset-3 col-sm-4">
-          <h4>Choose a Repository!</h4>
-          <select name = "gitRepoChoice" selected="selected">
-            <option value="#">Repo 1</option>
-          </select>
-        </div>
-        <div class = "col-sm-offset-1 col-sm-2">
-          <input id = "submitRepo-button" type = "submit" value = "Git Working!" name = submitRepo!">
-        </div>
-      </form>
-    </div>
-  </section>
+  </div>
 </section>
