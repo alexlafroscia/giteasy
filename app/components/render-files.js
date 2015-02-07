@@ -25,13 +25,15 @@ export default Ember.Component.extend(Ember.PromiseProxyMixin, {
       return new Ember.RSVP.resolve(contents.map(function(item) {
         if (item.type === 'dir') {
           item.isFolder = true;
+          item.isFile = false;
         } else {
           item.isFolder = false;
+          item.isFile = true;
         }
         return item;
       }));
     }).then(function(contents) {
-      return new Ember.RSVP.resolve(contents.sortBy('isFolder', 'name'));
+      return new Ember.RSVP.resolve(contents.sortBy('isFile', 'name'));
     }).then((contents) => {
       this.set('files', contents);
       this.set('isLoading', false);
