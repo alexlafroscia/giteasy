@@ -12,6 +12,7 @@ Router.map(function() {
   this.route("choose", {path: "/choose"});
   this.route("repo", {path: ":owner_id/:repo_id"}, function() {
     this.route("editFile");
+    this.route("files", {path: "files/*file_path" });
   });
 });
 
