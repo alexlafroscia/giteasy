@@ -1,5 +1,4 @@
 import Ember from 'ember';
-import ajax from 'ic-ajax';
 import FileField from 'ember-uploader/file-field';
 
 export default FileField.extend({
@@ -33,23 +32,14 @@ export default FileField.extend({
       url = url + 'contents/';
       url = url + path;
 
-      Ember.$.ajax({
-        url: url,
-        type: 'PUT',
-        headers: {
-          'Authorization': 'token ' + token
-        },
-        data: {
-          message: commit,
-          path: path,
-          content: file,
-          branch: 'master'
+      repo.write('master', path, file, commit, function(err) {
+        if (err) {
+          console.error(err);
+        } else {
+          console.debug('it worked!');
         }
-      }).done(function(data) {
-        console.debug(data);
-      }).fail(function(data) {
-        console.debug(data);
       });
+
     };
 
     reader.onerror = function() {
