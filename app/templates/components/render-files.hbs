@@ -21,7 +21,7 @@
       {{else}}
         <li class="repoTreeName repoFile">
           <span class="repoTreeIcon glyphicon glyphicon-list-alt"></span>
-          <a href="#">
+          <a {{action 'downloadFile' name}}>
             {{name}}
           </a>
         </li>

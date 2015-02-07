@@ -45,6 +45,24 @@ export default Ember.Component.extend(Ember.PromiseProxyMixin, {
       this.set('isRejected', true);
       this.set('isLoading', false);
     });
-  }.on('init').observes('path')
+  }.on('init').observes('path'),
+
+  // Actions
+  actions: {
+
+    downloadFile: function(fileName) {
+      var repo = this.get('repo');
+      var path = this.get('path');
+      repo.read('master', path + fileName, function(err, data) {
+        if (!Ember.isBlank(err)) {
+          console.error(err);
+        } else {
+          window.open('data:text;charset=utf-8,' + data);
+        }
+      });
+    }
+
+  }
+
 
 });
