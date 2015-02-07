@@ -12,11 +12,20 @@
     <ul>
     {{#each files}}
       {{#if isFolder}}
-        {{#link-to 'repo.files' path}}
-          <li>Directory: {{name}}</li>
-        {{/link-to}}
+        <li class="repoTreeName repoFolder">
+          <span class="repoTreeIcon glyphicon glyphicon-folder-close"></span>
+          {{#link-to 'repo.files' path}}
+            {{name}}
+          {{/link-to}}
+        </li>
       {{else}}
-        <li>{{name}}</li>
+        <li class="repoTreeName repoFile">
+          -----
+          <span class="repoTreeIcon glyphicon glyphicon-list-alt"></span>
+          <a href="#">
+            {{name}}
+          </a>
+        </li>
       {{/if}}
     {{/each}}
     </ul>
