@@ -10,7 +10,7 @@ Router.map(function() {
   this.route("oauth");
   this.route("choose", {path: "/choose"});
   this.route("repo", {path: ":owner_id/:repo_id"}, function() {
-    this.route("editFile");
+    this.route("editFile", {path: "files/*file_path/edit" });
     this.route("files", {path: "files/*file_path" });
   });
 });
