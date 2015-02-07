@@ -55,10 +55,6 @@ export default Ember.Object.extend({
     var user = github.getUser();
     this.set('user', user);
 
-    user.repos(function(err, repos) {
-      console.debug(repos);
-    });
-
   }.observes('accessToken')
 
 });
