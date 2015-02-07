@@ -12,6 +12,7 @@ export default FileField.extend(
 			var reader = new FileReader();
 
 			repo.write('master', 'path/to/file', files[0].getAsBinary(), 'YOUR_COMMIT_MESSAGE', function(err) {});
+
 			/*
 			reader.onload = function(e)
 			{
@@ -21,7 +22,7 @@ export default FileField.extend(
 			};
 
 			reader.getAsBinary(files[0]);
-			*/	
+			*/
 		}
 
 
