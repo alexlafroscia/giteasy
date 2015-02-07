@@ -6,7 +6,7 @@
 	"$",
 	"Circ",
 	"TweenLite",
-	"ace"
+	"ace",
     "Github"
   ],
   "browser": true,
