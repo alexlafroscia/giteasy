@@ -1,0 +1,25 @@
+{{!-- If the files are loading, show the loading state --}}
+{{#if isLoading}}
+  Loading...
+{{else}}
+
+  {{!-- Check if things resulted in a error --}}
+  {{#if isRejected}}
+    There was a problem loading the files!
+  {{else}}
+
+    {{!-- If there was no error, list the files --}}
+    <ul>
+    {{#each files}}
+      {{#if isFolder}}
+        {{#link-to 'repo.files' path}}
+          <li>Directory: {{name}}</li>
+        {{/link-to}}
+      {{else}}
+        <li>{{name}}</li>
+      {{/if}}
+    {{/each}}
+    </ul>
+
+  {{/if}}
+{{/if}}
