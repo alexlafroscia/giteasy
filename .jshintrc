@@ -5,7 +5,8 @@
     "-Promise",
 	"$",
 	"Circ",
-	"TweenLite"
+    "Github",
+    "TweenLite"
   ],
   "browser": true,
   "boss": true,

@@ -7,8 +7,12 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route("index", {path: "/"});
+  this.route("oauth");
   this.route("repoDir", {path: "/repo-dir"});
   this.route("index-chooseRepo", {path: "/chooseRepo"});
+  this.route("login");
+  this.route("user");
+  this.route("orgs");
 });
 
 export default Router;
