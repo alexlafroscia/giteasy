@@ -1,4 +1,9 @@
-{{#each}}
-  {{name}}
-{{/each}}
-
+<ul>
+	{{#each}}
+		{{#if isFolder}}
+			<li class="repoTreeName repoFolder"><span class="repoTreeIcon glyphicon glyphicon-folder-close"></span> <a href="#">Folder Name<a href= "#">{{name}}
+		{{else}}
+			<li class="repoTreeName repoFile"> ----- <span class="repoTreeIcon glyphicon glyphicon-list-alt"></span> <a href="#">{{name}}<a href="#"></li>
+		{{/if}}
+	{{/each}}
+</ul>

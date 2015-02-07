@@ -1,7 +1,6 @@
 <header class ="site-head-sm">
   <h1 id ="site-head-title-sm">GitEasy</h1>
 </header>
-{{outlet}}
 <section class = "container-fluid">
   <section id = 'show-repo' class = "row">
     <section id = 'taskbar-repo' class = "row">
@@ -12,8 +11,8 @@
     </section>
     <section id = 'repo-dir' class = "row">
       <section class="col-sm-offset-1 col-sm-8">
-        <p class="repoTreeName"><span class="repoTreeIcon glyphicon glyphicon-folder-close"></span> <a href="#">Folder Name<a href= "#"></p>
-        <p class="repoTreeName"> ----- <span class="repoTreeIcon glyphicon glyphicon-list-alt"></span> <a href="#">File Name<a href="#"></p>
+		{{outlet}}
+
       </section>
     </section>
   </section>
