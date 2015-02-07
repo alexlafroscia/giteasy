@@ -28,6 +28,20 @@ export default Ember.Object.extend({
   }.property('user'),
 
 
+  allRepos: function() {
+    var user = this.get('user');
+    return new Ember.RSVP.Promise(function(resolve, reject) {
+      user.repos(function(err, repos) {
+        if (!Ember.isBlank(err)) {
+          reject(err);
+        } else {
+          resolve(repos);
+        }
+      });
+    });
+  }.property('user'),
+
+
   loginUser: function() {
     var github = new Github({
       token: this.get('accessToken'),
@@ -40,10 +54,6 @@ export default Ember.Object.extend({
     // Set the user property
     var user = github.getUser();
     this.set('user', user);
-
-    user.repos(function(err, repos) {
-      console.debug(repos);
-    });
 
   }.observes('accessToken')
 
