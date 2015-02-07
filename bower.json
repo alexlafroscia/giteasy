@@ -14,6 +14,7 @@
     "ember-qunit-notifications": "0.0.5",
     "qunit": "~1.17.1",
     "github-api": "~0.10.3",
-    "underscore": "~1.7.0"
+    "underscore": "~1.7.0",
+    "ember-uploader": "~0.3.4"
   }
 }

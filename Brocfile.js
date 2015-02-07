@@ -17,6 +17,7 @@ var app = new EmberApp();
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
 
+app.import('bower_components/ember-uploader/dist/ember-uploader.named-amd.js');
 app.import('bower_components/underscore/underscore.js');
 app.import('bower_components/github-api/github.js');
 app.import('bower_components/jquery/dist/jquery.min.js');
