@@ -5,6 +5,6 @@ export default Ember.Route.extend({
     var params = transition.queryParams;
     localStorage.setItem('accessToken', params.access_token);
     this.session.set('accessToken', params.access_token);
-    this.transitionTo('user');
+    this.transitionTo('choose');
   }
 });
