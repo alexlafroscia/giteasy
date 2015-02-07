@@ -2,6 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Component.extend(Ember.PromiseProxyMixin, {
 
+  classNames: ['render-file-list'],
+
   isLoading: true,
   files: null,
 

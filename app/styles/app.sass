@@ -3,139 +3,143 @@ $eggshell: #ecf0f1
 $purple: #8E44AD
 $dancing-script: 'Dancing Script', cursive
 
+@import 'components/render-files'
+
 body
-	background: $eggshell
+  background: $eggshell
 a
-	color: inherit
+  color: inherit
 ul
-    list-style-type: none
+  list-style-type: none
 
 // header
 .site-head
-	height: 40%
-	background-color: $purple
+  height: 40%
+  background-color: $purple
 #site-head-title
-	font-family: $dancing-script
-	font-size: 15em
-	color: $eggshell
-	text-align: center
+  font-family: $dancing-script
+  font-size: 15em
+  color: $eggshell
+  text-align: center
 
 // gooey get-started menu
 #login-open
-	display: none
+  display: none
 #loginInfoPanel, #login-open-button, #submitGit-button
-	font-family: $dancing-script
-	background: $purple
-	-moz-border-radius: 15px
-	-webkit-border-radius: 15px
-	cursor: pointer
-	padding: 2%
-	text-align: center
+  font-family: $dancing-script
+  background: $purple
+  -moz-border-radius: 15px
+  -webkit-border-radius: 15px
+  cursor: pointer
+  padding: 2%
+  text-align: center
 #loginInfoPanel h4
-	color: $eggshell
-	font-size: 1em
+  color: $eggshell
+  font-size: 1em
 #loginInfoPanel, #submitGit-button
-	opacity: 0
+  opacity: 0
 #loginInfoPanel
-	right: -150px
+  right: -150px
 #submitGit-button
-	left: -150px
+  left: -150px
 #login-open-button, #submitGit-button
-	color: $eggshell
-	outline: none
-	border: none !important
-	-webkit-box-shadow: none !important
-	-moz-box-shadow: none !important
-	box-shadow: none !important
+  color: $eggshell
+  outline: none
+  border: none !important
+  -webkit-box-shadow: none !important
+  -moz-box-shadow: none !important
+  box-shadow: none !important
 #login-open-button
-	line-height: 60px
-	margin: 1%
-	width: 45%
-	height: 12%
-	font-size: 2em
+  line-height: 60px
+  margin: 1%
+  width: 45%
+  height: 12%
+  font-size: 2em
 #submitGit-button
-	width: 25%
-	height: 12%
-	font-size: 1em
+  width: 25%
+  height: 12%
+  font-size: 1em
 #login-open-button:hover
-	width: 47%
-	height: 13%
+  width: 47%
+  height: 13%
 #submitGit-button:hover
-	width: 26%
-	height: 13%
+  width: 26%
+  height: 13%
 .githubLoginForm
-	font-family: $dancing-script
-	font-size: 2em
-	color:  #8E44AD
+  font-family: $dancing-script
+  font-size: 2em
+  color:  #8E44AD
 
 //choose repo
 #repoChooseDropdown, #orgChooseDropdown
-	height: 10em
-	width: 22em
-	font-family: $dancing-script
-	background: $purple
-	-moz-border-radius: 15px
-	-webkit-border-radius: 15px
-	cursor: pointer
-	text-align: center
+  height: 10em
+  width: 22em
+  font-family: $dancing-script
+  background: $purple
+  -moz-border-radius: 15px
+  -webkit-border-radius: 15px
+  cursor: pointer
+  text-align: center
 #repoChooseDropdown h4, #orgChooseDropdown h4
-	color: $eggshell
-	font-size: 3em
+  color: $eggshell
+  font-size: 3em
 #submitRepo-button, #submitOrg-button
-	height: 7em
-	width: 7em
-	font-family: $dancing-script
-	background: $purple
-	-moz-border-radius: 15px
-	-webkit-border-radius: 15px
-	cursor: pointer
-	text-align: center
-	color: $eggshell
-	outline: none
-	border: none !important
-	-webkit-box-shadow: none !important
-	-moz-box-shadow: none !important
-	box-shadow: none !important
+  height: 7em
+  width: 7em
+  font-family: $dancing-script
+  background: $purple
+  -moz-border-radius: 15px
+  -webkit-border-radius: 15px
+  cursor: pointer
+  text-align: center
+  color: $eggshell
+  outline: none
+  border: none !important
+  -webkit-box-shadow: none !important
+  -moz-box-shadow: none !important
+  box-shadow: none !important
 #submitRepo-button:hover
-	height: 8em
-	width: 8em
+  height: 8em
+  width: 8em
 #submitOrg-button:hover
-	height: 8em
-	width: 8em
+  height: 8em
+  width: 8em
 
 //repository dir page
 .site-head-sm
-	height: 10em
-	background-color: $purple
+  height: 10em
+  background-color: $purple
+  margin-bottom: 1em
 #site-head-title-sm
-	font-family: $dancing-script
-	font-size: 8em
-	color: $eggshell
-	text-align: center
+  font-family: $dancing-script
+  font-size: 8em
+  color: $eggshell
+  text-align: center
+  margin-top: 0
 .toolbarIcon
-	height: 7em
-	width: 7em
-	background: $purple
-	-moz-border-radius: 15px
-	-webkit-border-radius: 15px
-	cursor: pointer
-	text-align: center
-	color: $eggshell
-	outline: none
-	border: none !important
-	-webkit-box-shadow: none !important
-	-moz-box-shadow: none !important
-	box-shadow: none !important
+  height: 7em
+  width: 7em
+  background: $purple
+  -moz-border-radius: 15px
+  -webkit-border-radius: 15px
+  cursor: pointer
+  text-align: center
+  color: $eggshell
+  outline: none
+  border: none !important
+  -webkit-box-shadow: none !important
+  -moz-box-shadow: none !important
+  box-shadow: none !important
 .repoTreeIcon
-	font-size: 2em
-	color: $purple
+  font-size: 2em
+  color: $purple
 .repoTreeName
-	color: $purple
-	font-size: 2em
+  color: $purple
+  font-size: 2em
 
 //edit individual files
 #editor
-	position: absolute
+  position: absolute
     top: 0
     right: 0
     bottom: 0
