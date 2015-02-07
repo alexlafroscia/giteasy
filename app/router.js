@@ -7,7 +7,6 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route("index", {path: "/"});
-  this.route("login");
   this.route("user");
   this.route("oauth");
   this.route("choose", {path: "/choose"});

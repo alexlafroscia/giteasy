@@ -6,21 +6,8 @@
 	<section id = 'login' class = "row">
 		<div class = "row">
 			<div class = "col-sm-offset-4">
-				<button id = "login-open-button" onclick="showForm()">Git Started!</label>
+				<button {{action 'login'}} id = "login-open-button" >Git Started!</button>
 			</div>
-		</div>
-		<div class = "row">
-			<form class = "githubLoginForm">
-				<div id = "loginInfoPanel" class = "col-sm-offset-2 col-sm-4">
-					<h4>Github account</h4>
-					<input type ="text" name = "githubAccountName">
-					<h4>Github password</h4>
-					<input type = "password" name = "githubAccountPassword">
-				</div>
-				<div class = "col-sm-offset-1 col-sm-5">
-					<input id = "submitGit-button" type = "submit" value = "submit" name = "submitGit">
-				</div>
-			</form>
 		</div>
 	</section>
 </section>
