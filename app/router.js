@@ -7,6 +7,9 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route("login");
+  this.route("oauth");
+  this.route("user");
+  this.route("orgs");
 });
 
 export default Router;
