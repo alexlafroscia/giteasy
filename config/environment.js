@@ -49,7 +49,7 @@ module.exports = function(environment) {
     'font-src': "'self' http://fonts.googleapis.com http://fonts.gstatic.com https://maxcdn.bootstrapcdn.com",
     'connect-src': "'self' https://api.github.com",
     'img-src': "'self'",
-    'style-src': "'self' https://maxcdn.bootstrapcdn.com http://fonts.googleapis.com",
+    'style-src': "'self' 'unsafe-inline' https://maxcdn.bootstrapcdn.com http://fonts.googleapis.com",
     'media-src': "'self'"
   };
 
