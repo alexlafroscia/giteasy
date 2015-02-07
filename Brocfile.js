@@ -22,5 +22,8 @@ app.import('bower_components/github-api/github.js');
 app.import('bower_components/jquery/dist/jquery.min.js');
 app.import('vendor/headerCanv.js');
 app.import('vendor/mainLogin.js');
+app.import("bower_components/ace-builds/src-noconflict/ace.js");
+app.import("bower_components/ace-builds/src-noconflict/ace.js");
+app.import("bower_components/ace-builds/src-noconflict/ace.js");
 
 module.exports = app.toTree();

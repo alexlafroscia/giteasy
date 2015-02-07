@@ -67,7 +67,7 @@ a
 	color:  #8E44AD
 
 //choose repo
-#repoChooseDropdown
+#repoChooseDropdown, #orgChooseDropdown
 	height: 10em
 	width: 22em
 	font-family: $dancing-script
@@ -76,10 +76,10 @@ a
 	-webkit-border-radius: 15px
 	cursor: pointer
 	text-align: center
-#repoChooseDropdown h4
+#repoChooseDropdown h4, #orgChooseDropdown h4
 	color: $eggshell
 	font-size: 3em
-#submitRepo-button
+#submitRepo-button, #submitOrg-button
 	height: 7em
 	width: 7em
 	font-family: $dancing-script
@@ -95,6 +95,9 @@ a
 	-moz-box-shadow: none !important
 	box-shadow: none !important
 #submitRepo-button:hover
+	height: 8em
+	width: 8em
+#submitOrg-button:hover
 	height: 8em
 	width: 8em
 
@@ -127,3 +130,11 @@ a
 .repoTreeName
 	color: $purple
 	font-size: 2em
+
+//edit individual files
+#editor
+	position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
