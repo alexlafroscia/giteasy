@@ -5,6 +5,11 @@ export default Ember.Object.extend({
   user: null,
   accessToken: null,
 
+  repo: Ember.Object.create({
+    owner: null,
+    name: null
+  }),
+
   init: function() {
     if (Ember.isPresent(localStorage.accessToken)) {
       this.set('accessToken', localStorage.accessToken);

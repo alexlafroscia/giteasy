@@ -1,29 +1,63 @@
 import Ember from 'ember';
+import ajax from 'ic-ajax';
 import FileField from 'ember-uploader/file-field';
 
-export default FileField.extend(
-{
-	filesDidChange: (function()
-	{
-		var files = this.get('files');
+export default FileField.extend({
+  repo: null,
+  token: null,
 
-		if (!Ember.isEmpty(files))
-		{
-			var reader = new FileReader();
+  filesDidChange: function() {
+    var repo = this.get('repo');
+    var token = this.get('token');
+    var files = this.get('files');
+    var owner = this.get('owner');
+    var repoName = this.get('repoName');
 
-			repo.write('master', 'path/to/file', files[0].getAsBinary(), 'YOUR_COMMIT_MESSAGE', function(err) {});
-			/*
-			reader.onload = function(e)
-			{
-				var text = reader.result;
-				alert(text);
-				//repo.write('master', 'path/to/file', 'YOUR_NEW_CONTENTS', 'YOUR_COMMIT_MESSAGE', function(err) {});
-			};
+    // Get path to file
+    var path = this.get('path');
+    if (path.slice(-1) === '/') {
+      path = '';
+    }
+    path += files[0].name;
 
-			reader.getAsBinary(files[0]);
-			*/	
-		}
+    var commit = "Upload file " + files[0].name;
+    var reader = new FileReader();
 
+    reader.onload = function() {
+      console.log('uploading the file');
+      var file = reader.result;
 
-	}).observes('files')
+      var url = 'https://api.github.com/repos/';
+      url = url + owner + '/';
+      url = url + repoName + '/';
+      url = url + 'contents/';
+      url = url + path;
+
+      Ember.$.ajax({
+        url: url,
+        type: 'PUT',
+        headers: {
+          'Authorization': 'token ' + token
+        },
+        data: {
+          message: commit,
+          path: path,
+          content: file,
+          branch: 'master'
+        }
+      }).done(function(data) {
+        console.debug(data);
+      }).fail(function(data) {
+        console.debug(data);
+      });
+    };
+
+    reader.onerror = function() {
+      reader.abort();
+    };
+
+    reader.readAsText(files[0]);
+
+  }.observes('files')
+
 });
