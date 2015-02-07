@@ -3,9 +3,11 @@
     "document",
     "window",
     "-Promise",
-	"$",
-	"Circ",
-	"TweenLite"
+    "$",
+    "Circ",
+    "TweenLite",
+    "ace",
+    "Github"
   ],
   "browser": true,
   "boss": true,
