@@ -1,25 +1,80 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Giteasy</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    {{content-for 'head'}}
+		<title>Git Easy</title>
 
-    <link rel="stylesheet" href="assets/vendor.css">
-    <link rel="stylesheet" href="assets/giteasy.css">
+    	{{content-for 'head'}}
 
-    {{content-for 'head-footer'}}
-  </head>
-  <body>
-    {{content-for 'body'}}
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <script src="assets/vendor.js"></script>
-    <script src="assets/giteasy.js"></script>
+		<!--Bootstrap CDN-->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+		<!--Bootstrap-->
 
-    {{content-for 'body-footer'}}
-  </body>
+		<!--stylesheetsand fonts-->
+		<link href='http://fonts.googleapis.com/css?family=Dancing+Script' rel='stylesheet' type='text/css'>
+
+		<link rel="stylesheet" href="assets/vendor.css">
+		<link rel="stylesheet" href="assets/giteasy.css">
+		<!--end stylesheets-->
+
+		{{content-for 'head-footer'}}
+
+	</head>
+	<body>
+		<header class ="site-head" class = "jumbotron">
+			<h1 id ="site-head-title">GitEasy</h1>
+		</header>
+
+    	{{content-for 'body'}}
+
+		<section class = "container-fluid">
+			<section id = 'login' class = "row">
+				<div class = "row">
+					<div class = "col-sm-offset-4">
+						<button id = "login-open-button" onclick="showForm()">Git Started!</label>
+					</div>
+				</div>
+				<div class = "row">
+					<form class = "githubLoginForm">
+						<div id = "loginInfoPanel" class = "col-sm-offset-2 col-sm-4">
+							<h4>Github account</h4>
+							<input type ="text" name = "githubAccountName">
+							<h4>Github password</h4>
+							<input type = "password" name = "githubAccountPassword">
+						</div>
+						<div class = "col-sm-offset-1 col-sm-5">
+							<input id = "submitGit-button" type = "submit" value = "submit" name = "submitGit">
+						</div>
+					</form>
+				</div>
+			</section>
+			<section class = "row" id ="chooseRepo">
+				<div id = "row">
+					<form>
+						<div id = "repoChooseDropdown" class = "col-sm-offset-2 col-sm-4">
+							<h4>Choose a Repository!</h4>
+							<select name = "gitRepoChoice" selected="selected">
+								<option value="#">Repo 1</option>
+							</select>
+						</div>
+						<div id = "repoChooseDropdown" class = "col-sm-offset-1 col-sm-4">
+							<input id = "submitRepo-button" type = "submit" value = "Git Working!" name = submitRepo!">
+						</div>
+					</form>
+				</div>
+			</section>
+		</section>
+
+		<!--scripts:-->
+		<script src="assets/vendor.js"></script>
+		<script src="assets/giteasy.js"></script>
+		<!--end scripts-->
+
+		{{content-for 'body-footer'}}
+	</body>
 </html>

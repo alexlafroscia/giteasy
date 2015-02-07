@@ -19,5 +19,8 @@ var app = new EmberApp();
 
 app.import('bower_components/underscore/underscore.js');
 app.import('bower_components/github-api/github.js');
+app.import('bower_components/jquery/dist/jquery.min.js');
+app.import('vendor/headerCanv.js');
+app.import('vendor/mainLogin.js');
 
 module.exports = app.toTree();
