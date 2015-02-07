@@ -9,8 +9,11 @@ export default FileField.extend({
 		var files = this.get('files');
 
 		if (!Ember.isEmpty(files)){
-			console.log("Not empty");
-			alert(files[0].name);
+			//alert("Ready to commit "files[0].name);
+			var text = new FileReader(files[0]).readAsText();
+			alert(text)
 		}
+
+
 	}).observes('files')
 });
