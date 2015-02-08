@@ -1,0 +1,120 @@
+.scrap, .render-file-list, .render-repo-list {
+  background-color: white;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+  margin-top: 1em;
+  margin-bottom: 2em; }
+
+.render-file-list {
+  padding: 1em; }
+
+.render-repo-list .repo a {
+  display: block;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 1em;
+  margin-right: 1em;
+  margin-left: 1em; }
+.render-repo-list .repo h3 {
+  margin: 0;
+  padding-bottom: 0.5em; }
+.render-repo-list .repo:hover {
+  background-color: #e6ebed; }
+  .render-repo-list .repo:hover a {
+    text-decoration: none; }
+
+.repo-filter {
+  border: none;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4);
+  font-size: 1.5em;
+  padding-left: 1em;
+  padding: 0.5em;
+  width: 100%; }
+  .repo-filter:focus {
+    outline: none; }
+
+body {
+  background: #ecf0f1; }
+
+a {
+  color: inherit; }
+
+ul {
+  list-style-type: none; }
+
+.site-head {
+  height: 45%;
+  background-color: #8E44AD;
+  box-shadow: 5px 5px 5px #888888; }
+
+#site-head-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 15em;
+  color: #ecf0f1;
+  text-align: center; }
+
+#site-head-sub-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 5em;
+  color: #8E44AD;
+  text-align: center; }
+
+#login-open {
+  display: none; }
+
+#login-open-button {
+  font-family: 'Dancing Script', cursive;
+  background: #8E44AD;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  cursor: pointer;
+  padding: 2%;
+  text-align: center; }
+
+#login-open-button {
+  color: #ecf0f1;
+  outline: none;
+  box-shadow: 5px 5px 5px #888888; }
+
+#login-open-button {
+  line-height: 60px;
+  margin: 1%;
+  width: 45%;
+  height: 12%;
+  font-size: 2em; }
+
+.site-head-sm {
+  height: 10em;
+  background-color: #8E44AD;
+  margin-bottom: 1em;
+  box-shadow: 5px 5px 5px #888888; }
+
+#site-head-title-sm {
+  font-family: 'Dancing Script', cursive;
+  font-size: 8em;
+  color: #ecf0f1;
+  text-align: center;
+  margin-top: 0; }
+
+.toolbarIcon {
+  height: 5em;
+  width: 8em;
+  background: #8E44AD;
+  -moz-border-radius: 13px;
+  -webkit-border-radius: 13px;
+  cursor: pointer;
+  text-align: center;
+  color: #ecf0f1; }
+
+.repoTreeIcon {
+  font-size: 1.5em;
+  color: #8E44AD; }
+
+.repoTreeName {
+  color: #8E44AD;
+  font-size: 1.5em; }
+
+#editor {
+  position: absolute;
+  position-top: 0;
+  position-right: 0;
+  position-bottom: 0;
+  position-left: 0; }
