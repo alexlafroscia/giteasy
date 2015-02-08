@@ -10,7 +10,8 @@
   "scripts": {
     "start": "ember server",
     "build": "ember build",
-    "test": "ember test"
+    "test": "ember test",
+    "oauth": "node api/oauth.js"
   },
   "repository": "",
   "engines": {
@@ -38,5 +39,8 @@
     "glob": "^4.0.5",
     "http-proxy": "^1.8.1",
     "morgan": "^1.5.1"
+  },
+  "dependencies": {
+    "query-string": "^1.0.0"
   }
 }
