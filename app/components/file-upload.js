@@ -22,7 +22,7 @@ export default FileField.extend({
     var commit = "Upload file " + files[0].name;
     var reader = new FileReader();
 
-    reader.onload = function() {
+    reader.onload = () => {
       console.log('uploading the file');
       var file = reader.result;
 
@@ -32,11 +32,12 @@ export default FileField.extend({
       url = url + 'contents/';
       url = url + path;
 
-      repo.write('master', path, file, commit, function(err) {
+      repo.write('master', path, file, commit, (err) => {
         if (err) {
           console.error(err);
         } else {
           console.debug('it worked!');
+          this.sendAction('uploadSuccess');
         }
       });
 
