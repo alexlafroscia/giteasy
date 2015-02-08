@@ -14,7 +14,7 @@ git config user.name "Alex LaFroscia"
 git config user.email "alex@lafroscia.com"
 
 # Push the repo up to Github Pages
-git remote add upstream "https://$GH_TOKEN@github.com/rust-lang/rust-by-example.git"
+git remote add upstream "https://$GH_TOKEN@github.com/alexlafroscia/giteasy.git"
 git fetch upstream
 git reset upstream/gh-pages
 
