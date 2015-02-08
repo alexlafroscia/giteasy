@@ -1,1 +1,107 @@
+// Libraries
 @import 'materialize';
+
+// Incluces
+@import 'includes/vars';
+
+// Components
+@import 'components/render-files';
+
+// Base styles
+body {
+  background: $eggshell;
+}
+
+a {
+  color: inherit;
+}
+
+ul {
+  list-style-type: none;
+}
+
+// header
+.site-head {
+  height: 45%;
+  background-color: $purple;
+  box-shadow: 5px 5px 5px $black;
+}
+
+#site-head-title {
+  font-family: $dancing-script;
+  font-size: 15em;
+  color: $eggshell;
+  text-align: center;
+}
+
+#site-head-sub-title {
+  font-family: $dancing-script;
+  font-size: 5em;
+  color: $purple;
+  text-align: center;
+}
+
+#login-open {
+  display: none;
+}
+
+#login-open-button {
+  font-family: $dancing-script;
+  background: $purple;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  cursor: pointer;
+  padding: 2%;
+  text-align: center;
+}
+
+#login-open-button {
+  color: $eggshell;
+  outline: none;
+  box-shadow: 5px 5px 5px $black;
+}
+
+#login-open-button {
+  line-height: 60px;
+  margin: 1%;
+  width: 45%;
+  height: 12%;
+  font-size: 2em;
+}
+
+//repository dir page
+.site-head-sm {
+  height: 10em;
+  background-color: $purple;
+  margin-bottom: 1em;
+  box-shadow: 5px 5px 5px $black;
+}
+
+#site-head-title-sm {
+  font-family: $dancing-script;
+  font-size: 8em;
+  color: $eggshell;
+  text-align: center;
+  margin-top: 0;
+}
+
+.toolbarIcon {
+  height: 5em;
+  width: 8em;
+  background: $purple;
+  -moz-border-radius: 13px;
+  -webkit-border-radius: 13px;
+  cursor: pointer;
+  text-align: center;
+  color: $eggshell;
+}
+
+.repoTreeIcon {
+  font-size: 1.5em;
+  color: $purple;
+}
+
+.repoTreeName {
+  color: $purple;
+  font-size: 1.5em;
+}
