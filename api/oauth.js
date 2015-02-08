@@ -4,6 +4,7 @@
 
 var express = require('express');
 var https = require('https');
+var httpProxy = require('http-proxy');
 var queryString = require('query-string');
 var app = express();
 
@@ -18,12 +19,6 @@ if (app.get('env') === 'development') {
 } else {
   clientUrl = 'http://giteasy.alexlafroscia.com';
 }
-
-
-// Serve the HTML file from the root of the server
-app.get('/', function(req, res) {
-  res.sendFile(__dirname + '/public/index.html');
-});
 
 
 // Handle OAuth with Github's API
@@ -63,13 +58,29 @@ app.get('/api/oauth', function(req, res) {
 });
 
 
-// Serve static files
-// The wildcard route at the end allows the Ember app to serve the app at
-// any given URL, which means that we can use the nice hashless routing
-app.use('/assets/', express.static(__dirname + '/public/assets'));
-app.use('/crossdomain.xml', express.static(__dirname + '/public'));
-app.use('/robots.txt', express.static(__dirname + '/public'));
-app.use('/*', express.static(__dirname + '/public/index.html'));
+if (app.get('env') === 'development') {
+
+  var emberProxy = httpProxy.createProxyServer();
+
+  app.get("/*", function(req, res) {
+    emberProxy.web(req, res, { target: 'http://0.0.0.0:4200' });
+  });
+
+} else {
+
+  // Serve the HTML file from the root of the server
+  app.get('/', function(req, res) {
+    res.sendFile(__dirname + '/public/index.html');
+  });
+
+  // Serve static files
+  // The wildcard route at the end allows the Ember app to serve the app at
+  // any given URL, which means that we can use the nice hashless routing
+  app.use('/assets/', express.static(__dirname + '/public/assets'));
+  app.use('/crossdomain.xml', express.static(__dirname + '/public'));
+  app.use('/robots.txt', express.static(__dirname + '/public'));
+  app.use('/*', express.static(__dirname + '/public/index.html'));
+}
 
 
 app.listen(3000);
