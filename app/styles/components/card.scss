@@ -1,0 +1,87 @@
+@import '../includes/vars';
+
+.card {
+  $margin-space: 1.5em;
+
+  background-color: white;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+  margin: {
+    top: $margin-space;
+    bottom: $margin-space;
+  }
+}
+
+@mixin card-list-item-separator($width) {
+  &:after {
+    background: darken($eggshell, 3);
+    bottom: 0;
+    content: '';
+    height: 1px;
+    left: (100% - $width) / 2;
+    position: absolute;
+    width: $width;
+  }
+}
+
+ul.card-list {
+  @extend .card;
+  @extend .container;
+
+  $spacing: 1em;
+
+  list-style: none;
+  padding: 0;
+
+  li {
+    h2 {
+      margin: 0;
+      margin-bottom: .5em;
+    }
+  }
+
+  li.no-link {
+    @include card-list-item-separator(96.5%);
+
+    position: relative;
+    padding: $spacing;
+
+  }
+
+  li.link {
+
+    > a {
+      @include card-list-item-separator(95%);
+
+      box-sizing: padding-box;
+      display: block;
+      overflow: hidden;
+      padding: {
+        left: $spacing;
+        right: $spacing;
+        top: $spacing;
+      }
+      position: relative;
+      text-decoration: none;
+
+
+      &:hover {
+        background-color: darken($eggshell, 2);
+      }
+    }
+  }
+}
+
+
+.repo-filter {
+  border: none;
+  box-sizing: border-box;
+  font-size: 1.5em;
+  padding-left: 1em;
+  padding: .5em;
+  width: 100%;
+
+  &:focus {
+    outline: none;
+  }
+}
+

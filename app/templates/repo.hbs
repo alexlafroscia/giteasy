@@ -2,24 +2,15 @@
   <h1 id ="site-head-title-sm">GitEasy</h1>
 </header>
 
-<section class="container">
-  <section id='show-repo' class = "row">
-    <section id='taskbar-repo' class = "row">
-      <section class="col-sm-offset-5 col-sm-5">
+<div class="container">
 
-        {{file-upload path=path
-                      repo=repo
-                      uploadSuccess="refreshList"}}
+  {{file-upload path=path
+                repo=repo
+                uploadSuccess="refreshList"}}
 
-        <button class="toolbarIcon glyphicon glyphicon-plus" title="Upload a file or folders"></button>
-        <button class="toolbarIcon glyphicon glyphicon-save" title="Download a file or folders"></button>
+  <button class="toolbarIcon glyphicon glyphicon-plus" title="Upload a file or folders"></button>
+  <button class="toolbarIcon glyphicon glyphicon-save" title="Download a file or folders"></button>
 
-      </section>
-    </section>
-    <section id='repo-dir' class="row">
-      <section class="col-sm-12">
-        {{outlet}}
-      </section>
-    </section>
-  </section>
-</section>
+  {{outlet}}
+
+</div>

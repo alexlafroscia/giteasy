@@ -4,7 +4,8 @@
 @import 'includes/vars';
 
 // Components
-@import 'components/render-files';
+@import 'components/container';
+@import 'components/card';
 
 // Base styles
 body {
@@ -15,30 +16,15 @@ a {
   color: inherit;
 }
 
-ul {
-  list-style-type: none;
-}
-
-// header
-.site-head {
-  height: 45%;
+.navbar {
   background-color: $purple;
-  box-shadow: 5px 5px 5px $black;
+  overflow: hidden;
+
+  h1 {
+    font-size: 3em;
+  }
 }
 
-#site-head-title {
-  font-family: $dancing-script;
-  font-size: 15em;
-  color: $eggshell;
-  text-align: center;
-}
-
-#site-head-sub-title {
-  font-family: $dancing-script;
-  font-size: 5em;
-  color: $purple;
-  text-align: center;
-}
 
 #login-open {
   display: none;

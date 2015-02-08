@@ -1,24 +1,24 @@
-<header class="site-head jumbotron">
-  <h1 id="site-head-title">GitEasy</h1>
+<header class="navbar">
+  <div class="container">
+    <h1>GitEasy</h1>
+  </div>
 </header>
 
-<section class="container">
-  <div class="row">
-    {{input classNames='repo-filter' placeholder='Search for a repo' value=filter}}
-  </div>
-</section>
+<div class="card container">
+  {{input classNames='repo-filter' placeholder='Search for a repo' value=filter}}
+</div>
 
-<section class="container">
+<div class="container">
   <div class="row">
-    <div class="render-repo-list">
+    <ul class="card-list">
     {{#each}}
-      <div class="repo">
+      <li class="link">
         {{#link-to 'repo' owner.login name}}
-          <h3>{{name}}</h3>
+          <h2>{{name}}</h2>
           <p>{{description}}</p>
         {{/link-to}}
-      </div>
+      </li>
     {{/each}}
-    </div>
+    </ul>
   </div>
-</section>
+</div>

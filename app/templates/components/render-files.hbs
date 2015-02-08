@@ -9,25 +9,19 @@
   {{else}}
 
     {{!-- If there was no error, list the files --}}
-    <ul>
-    {{#each files}}
-      {{#if isFolder}}
-        <li class="repoTreeName repoFolder">
-          <span class="repoTreeIcon glyphicon glyphicon-folder-close"></span>
-          {{#link-to 'repo.files' path}}
-            {{name}}
-          {{/link-to}}
-        </li>
+    {{#each files as |file|}}
+      <li class="no-link">
+      {{#if file.isFolder}}
+        {{#link-to 'repo.files' file.path}}
+          {{file.name}}
+        {{/link-to}}
       {{else}}
-        <li class="repoTreeName repoFile">
-          <span class="repoTreeIcon glyphicon glyphicon-list-alt"></span>
-          <a {{action 'downloadFile' name}}>
-            {{name}}
-          </a>
-        </li>
+        <a {{action 'downloadFile' file.name}}>
+          {{file.name}}
+        </a>
       {{/if}}
+      </li>
     {{/each}}
-    </ul>
 
   {{/if}}
 {{/if}}

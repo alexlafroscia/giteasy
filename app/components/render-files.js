@@ -2,7 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Component.extend(Ember.PromiseProxyMixin, {
 
-  classNames: ['render-file-list'],
+  tagName: 'ul',
+  classNames: ['card-list'],
 
   isLoading: true,
   files: null,
