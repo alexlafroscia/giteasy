@@ -16,6 +16,9 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+    API: {
+      // API-Related configuration here
     }
   };
 
@@ -25,6 +28,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.API.GITHUB_CLIENT_ID = 'a588178358290293b65d';
   }
 
   if (environment === 'test') {
@@ -40,7 +44,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.API.GITHUB_CLIENT_ID = 'ec1183f326f9641b1899';
   }
 
   ENV.contentSecurityPolicy = {

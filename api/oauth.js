@@ -9,16 +9,13 @@ var queryString = require('query-string');
 var app = express();
 
 // Github API Credentials
-var githubClientID = 'a588178358290293b65d';
-var githubClientSecret = process.env.GITEASY_GITHUB_CLIENT_SECRET;
-
-// Set up client URL based on environment
-var clientUrl;
+var githubClientID;
 if (app.get('env') === 'development') {
-  clientUrl = 'http://localhost:3000';
+  githubClientID = 'a588178358290293b65d';
 } else {
-  clientUrl = 'http://giteasy.alexlafroscia.com';
+  githubClientID = 'ec1183f326f9641b1899';
 }
+var githubClientSecret = process.env.GITEASY_GITHUB_CLIENT_SECRET;
 
 
 // Handle OAuth with Github's API
@@ -45,7 +42,7 @@ app.get('/api/oauth', function(req, res) {
 
     postRes.on('end', function() {
       response = queryString.parse(response);
-      res.redirect(clientUrl + '/oauth?access_token=' + response.access_token);
+      res.redirect('/oauth?access_token=' + response.access_token);
     });
 
     postRes.on('error', function(error) {
