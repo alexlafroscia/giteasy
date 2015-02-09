@@ -68,7 +68,8 @@ define('giteasy/components/render-files', ['exports', 'ember'], function (export
 
   exports['default'] = Ember['default'].Component.extend(Ember['default'].PromiseProxyMixin, {
 
-    classNames: ["render-file-list"],
+    tagName: "ul",
+    classNames: ["card-list"],
 
     isLoading: true,
     files: null,
@@ -178,7 +179,7 @@ define('giteasy/controllers/choose', ['exports', 'ember'], function (exports, Em
   });
 
 });
-define('giteasy/controllers/index', ['exports', 'ember'], function (exports, Ember) {
+define('giteasy/controllers/index', ['exports', 'ember', 'giteasy/config/environment'], function (exports, Ember, config) {
 
   'use strict';
 
@@ -186,7 +187,10 @@ define('giteasy/controllers/index', ['exports', 'ember'], function (exports, Emb
 
     actions: {
       login: function () {
-        location.href = "https://github.com/login/oauth/authorize?client_id=a588178358290293b65d&scope=user,repo";
+        var url = "https://github.com/login/oauth/authorize?client_id=";
+        url += config['default'].API.GITHUB_CLIENT_ID;
+        url += "&scope=user,repo";
+        location.href = url;
       }
     }
   });
@@ -483,319 +487,1117 @@ define('giteasy/services/session', ['exports', 'ember'], function (exports, Embe
   });
 
 });
-define('giteasy/templates/application', ['exports', 'ember'], function (exports, Ember) {
+define('giteasy/templates/application', ['exports'], function (exports) {
 
   'use strict';
 
-  exports['default'] = Ember['default'].Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
-  this.compilerInfo = [4,'>= 1.0.0'];
-  helpers = this.merge(helpers, Ember['default'].Handlebars.helpers); data = data || {};
-    var buffer = '', stack1;
-
-
-    stack1 = helpers._triageMustache.call(depth0, "outlet", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
-    if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-    data.buffer.push("\n");
-    return buffer;
-    
-  });
+  exports['default'] = Ember.HTMLBars.template((function() {
+    return {
+      isHTMLBars: true,
+      blockParams: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      build: function build(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createTextNode("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      render: function render(context, env, contextualElement) {
+        var dom = env.dom;
+        var hooks = env.hooks, content = hooks.content;
+        dom.detectNamespace(contextualElement);
+        var fragment;
+        if (env.useFragmentCache && dom.canClone) {
+          if (this.cachedFragment === null) {
+            fragment = this.build(dom);
+            if (this.hasRendered) {
+              this.cachedFragment = fragment;
+            } else {
+              this.hasRendered = true;
+            }
+          }
+          if (this.cachedFragment) {
+            fragment = dom.cloneNode(this.cachedFragment, true);
+          }
+        } else {
+          fragment = this.build(dom);
+        }
+        if (this.cachedFragment) { dom.repairClonedNode(fragment,[0]); }
+        var morph0 = dom.createMorphAt(fragment,0,1,contextualElement);
+        content(env, morph0, context, "outlet");
+        return fragment;
+      }
+    };
+  }()));
 
 });
-define('giteasy/templates/choose', ['exports', 'ember'], function (exports, Ember) {
+define('giteasy/templates/choose', ['exports'], function (exports) {
 
   'use strict';
 
-  exports['default'] = Ember['default'].Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
-  this.compilerInfo = [4,'>= 1.0.0'];
-  helpers = this.merge(helpers, Ember['default'].Handlebars.helpers); data = data || {};
-    var buffer = '', stack1, helper, options, self=this, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
-
-  function program1(depth0,data) {
-    
-    var buffer = '', stack1, helper, options;
-    data.buffer.push("\n      <div class=\"repo\">\n        ");
-    stack1 = (helper = helpers['link-to'] || (depth0 && depth0['link-to']),options={hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(2, program2, data),contexts:[depth0,depth0,depth0],types:["STRING","ID","ID"],data:data},helper ? helper.call(depth0, "repo", "owner.login", "name", options) : helperMissing.call(depth0, "link-to", "repo", "owner.login", "name", options));
-    if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-    data.buffer.push("\n      </div>\n    ");
-    return buffer;
-    }
-  function program2(depth0,data) {
-    
-    var buffer = '', stack1;
-    data.buffer.push("\n          <h3>");
-    stack1 = helpers._triageMustache.call(depth0, "name", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
-    if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-    data.buffer.push("</h3>\n          <p>");
-    stack1 = helpers._triageMustache.call(depth0, "description", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
-    if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-    data.buffer.push("</p>\n        ");
-    return buffer;
-    }
-
-    data.buffer.push("<header class=\"site-head jumbotron\">\n  <h1 id=\"site-head-title\">GitEasy</h1>\n</header>\n\n<section class=\"container\">\n  <div class=\"row\">\n    ");
-    data.buffer.push(escapeExpression((helper = helpers.input || (depth0 && depth0.input),options={hash:{
-      'classNames': ("repo-filter"),
-      'placeholder': ("Search for a repo"),
-      'value': ("filter")
-    },hashTypes:{'classNames': "STRING",'placeholder': "STRING",'value': "ID"},hashContexts:{'classNames': depth0,'placeholder': depth0,'value': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "input", options))));
-    data.buffer.push("\n  </div>\n</section>\n\n<section class=\"container\">\n  <div class=\"row\">\n    <div class=\"render-repo-list\">\n    ");
-    stack1 = helpers.each.call(depth0, {hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[],types:[],data:data});
-    if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-    data.buffer.push("\n    </div>\n  </div>\n</section>\n");
-    return buffer;
-    
-  });
+  exports['default'] = Ember.HTMLBars.template((function() {
+    var child0 = (function() {
+      var child0 = (function() {
+        return {
+          isHTMLBars: true,
+          blockParams: 0,
+          cachedFragment: null,
+          hasRendered: false,
+          build: function build(dom) {
+            var el0 = dom.createDocumentFragment();
+            var el1 = dom.createTextNode("          ");
+            dom.appendChild(el0, el1);
+            var el1 = dom.createElement("h2");
+            dom.appendChild(el0, el1);
+            var el1 = dom.createTextNode("\n          ");
+            dom.appendChild(el0, el1);
+            var el1 = dom.createElement("p");
+            dom.appendChild(el0, el1);
+            var el1 = dom.createTextNode("\n");
+            dom.appendChild(el0, el1);
+            return el0;
+          },
+          render: function render(context, env, contextualElement) {
+            var dom = env.dom;
+            var hooks = env.hooks, content = hooks.content;
+            dom.detectNamespace(contextualElement);
+            var fragment;
+            if (env.useFragmentCache && dom.canClone) {
+              if (this.cachedFragment === null) {
+                fragment = this.build(dom);
+                if (this.hasRendered) {
+                  this.cachedFragment = fragment;
+                } else {
+                  this.hasRendered = true;
+                }
+              }
+              if (this.cachedFragment) {
+                fragment = dom.cloneNode(this.cachedFragment, true);
+              }
+            } else {
+              fragment = this.build(dom);
+            }
+            var morph0 = dom.createMorphAt(dom.childAt(fragment, [1]),-1,-1);
+            var morph1 = dom.createMorphAt(dom.childAt(fragment, [3]),-1,-1);
+            content(env, morph0, context, "name");
+            content(env, morph1, context, "description");
+            return fragment;
+          }
+        };
+      }());
+      return {
+        isHTMLBars: true,
+        blockParams: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        build: function build(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("      ");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createElement("li");
+          dom.setAttribute(el1,"class","link");
+          var el2 = dom.createTextNode("\n");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("      ");
+          dom.appendChild(el1, el2);
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        render: function render(context, env, contextualElement) {
+          var dom = env.dom;
+          var hooks = env.hooks, get = hooks.get, block = hooks.block;
+          dom.detectNamespace(contextualElement);
+          var fragment;
+          if (env.useFragmentCache && dom.canClone) {
+            if (this.cachedFragment === null) {
+              fragment = this.build(dom);
+              if (this.hasRendered) {
+                this.cachedFragment = fragment;
+              } else {
+                this.hasRendered = true;
+              }
+            }
+            if (this.cachedFragment) {
+              fragment = dom.cloneNode(this.cachedFragment, true);
+            }
+          } else {
+            fragment = this.build(dom);
+          }
+          var morph0 = dom.createMorphAt(dom.childAt(fragment, [1]),0,1);
+          block(env, morph0, context, "link-to", ["repo", get(env, context, "owner.login"), get(env, context, "name")], {}, child0, null);
+          return fragment;
+        }
+      };
+    }());
+    return {
+      isHTMLBars: true,
+      blockParams: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      build: function build(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createElement("header");
+        dom.setAttribute(el1,"class","navbar");
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("div");
+        dom.setAttribute(el2,"class","container");
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("h1");
+        var el4 = dom.createTextNode("GitEasy");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n  ");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("div");
+        dom.setAttribute(el1,"class","card container");
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("div");
+        dom.setAttribute(el1,"class","container");
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("div");
+        dom.setAttribute(el2,"class","row");
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("ul");
+        dom.setAttribute(el3,"class","card-list");
+        var el4 = dom.createTextNode("\n");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("    ");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n  ");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      render: function render(context, env, contextualElement) {
+        var dom = env.dom;
+        var hooks = env.hooks, get = hooks.get, inline = hooks.inline, block = hooks.block;
+        dom.detectNamespace(contextualElement);
+        var fragment;
+        if (env.useFragmentCache && dom.canClone) {
+          if (this.cachedFragment === null) {
+            fragment = this.build(dom);
+            if (this.hasRendered) {
+              this.cachedFragment = fragment;
+            } else {
+              this.hasRendered = true;
+            }
+          }
+          if (this.cachedFragment) {
+            fragment = dom.cloneNode(this.cachedFragment, true);
+          }
+        } else {
+          fragment = this.build(dom);
+        }
+        var morph0 = dom.createMorphAt(dom.childAt(fragment, [2]),0,1);
+        var morph1 = dom.createMorphAt(dom.childAt(fragment, [4, 1, 1]),0,1);
+        inline(env, morph0, context, "input", [], {"classNames": "repo-filter", "placeholder": "Search for a repo", "value": get(env, context, "filter")});
+        block(env, morph1, context, "each", [], {}, child0, null);
+        return fragment;
+      }
+    };
+  }()));
 
 });
-define('giteasy/templates/components/file-upload', ['exports', 'ember'], function (exports, Ember) {
+define('giteasy/templates/components/file-upload', ['exports'], function (exports) {
 
   'use strict';
 
-  exports['default'] = Ember['default'].Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
-  this.compilerInfo = [4,'>= 1.0.0'];
-  helpers = this.merge(helpers, Ember['default'].Handlebars.helpers); data = data || {};
-    var buffer = '', stack1;
-
-
-    stack1 = helpers._triageMustache.call(depth0, "yield", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
-    if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-    data.buffer.push("\n");
-    return buffer;
-    
-  });
+  exports['default'] = Ember.HTMLBars.template((function() {
+    return {
+      isHTMLBars: true,
+      blockParams: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      build: function build(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createTextNode("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      render: function render(context, env, contextualElement) {
+        var dom = env.dom;
+        var hooks = env.hooks, content = hooks.content;
+        dom.detectNamespace(contextualElement);
+        var fragment;
+        if (env.useFragmentCache && dom.canClone) {
+          if (this.cachedFragment === null) {
+            fragment = this.build(dom);
+            if (this.hasRendered) {
+              this.cachedFragment = fragment;
+            } else {
+              this.hasRendered = true;
+            }
+          }
+          if (this.cachedFragment) {
+            fragment = dom.cloneNode(this.cachedFragment, true);
+          }
+        } else {
+          fragment = this.build(dom);
+        }
+        if (this.cachedFragment) { dom.repairClonedNode(fragment,[0]); }
+        var morph0 = dom.createMorphAt(fragment,0,1,contextualElement);
+        content(env, morph0, context, "yield");
+        return fragment;
+      }
+    };
+  }()));
 
 });
-define('giteasy/templates/components/render-files', ['exports', 'ember'], function (exports, Ember) {
+define('giteasy/templates/components/render-files', ['exports'], function (exports) {
 
   'use strict';
 
-  exports['default'] = Ember['default'].Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
-  this.compilerInfo = [4,'>= 1.0.0'];
-  helpers = this.merge(helpers, Ember['default'].Handlebars.helpers); data = data || {};
-    var buffer = '', stack1, self=this, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
-
-  function program1(depth0,data) {
-    
-    
-    data.buffer.push("\n  Loading...\n");
-    }
-
-  function program3(depth0,data) {
-    
-    var buffer = '', stack1;
-    data.buffer.push("\n\n  \n  ");
-    stack1 = helpers['if'].call(depth0, "isRejected", {hash:{},hashTypes:{},hashContexts:{},inverse:self.program(6, program6, data),fn:self.program(4, program4, data),contexts:[depth0],types:["ID"],data:data});
-    if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-    data.buffer.push("\n");
-    return buffer;
-    }
-  function program4(depth0,data) {
-    
-    
-    data.buffer.push("\n    There was a problem loading the files!\n  ");
-    }
-
-  function program6(depth0,data) {
-    
-    var buffer = '', stack1;
-    data.buffer.push("\n\n    \n    <ul>\n    ");
-    stack1 = helpers.each.call(depth0, "files", {hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(7, program7, data),contexts:[depth0],types:["ID"],data:data});
-    if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-    data.buffer.push("\n    </ul>\n\n  ");
-    return buffer;
-    }
-  function program7(depth0,data) {
-    
-    var buffer = '', stack1;
-    data.buffer.push("\n      ");
-    stack1 = helpers['if'].call(depth0, "isFolder", {hash:{},hashTypes:{},hashContexts:{},inverse:self.program(11, program11, data),fn:self.program(8, program8, data),contexts:[depth0],types:["ID"],data:data});
-    if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-    data.buffer.push("\n    ");
-    return buffer;
-    }
-  function program8(depth0,data) {
-    
-    var buffer = '', stack1, helper, options;
-    data.buffer.push("\n        <li class=\"repoTreeName repoFolder\">\n          <span class=\"repoTreeIcon glyphicon glyphicon-folder-close\"></span>\n          ");
-    stack1 = (helper = helpers['link-to'] || (depth0 && depth0['link-to']),options={hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(9, program9, data),contexts:[depth0,depth0],types:["STRING","ID"],data:data},helper ? helper.call(depth0, "repo.files", "path", options) : helperMissing.call(depth0, "link-to", "repo.files", "path", options));
-    if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-    data.buffer.push("\n        </li>\n      ");
-    return buffer;
-    }
-  function program9(depth0,data) {
-    
-    var buffer = '', stack1;
-    data.buffer.push("\n            ");
-    stack1 = helpers._triageMustache.call(depth0, "name", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
-    if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-    data.buffer.push("\n          ");
-    return buffer;
-    }
-
-  function program11(depth0,data) {
-    
-    var buffer = '', stack1;
-    data.buffer.push("\n        <li class=\"repoTreeName repoFile\">\n          <span class=\"repoTreeIcon glyphicon glyphicon-list-alt\"></span>\n          <a ");
-    data.buffer.push(escapeExpression(helpers.action.call(depth0, "downloadFile", "name", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0,depth0],types:["STRING","ID"],data:data})));
-    data.buffer.push(">\n            ");
-    stack1 = helpers._triageMustache.call(depth0, "name", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
-    if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-    data.buffer.push("\n          </a>\n        </li>\n      ");
-    return buffer;
-    }
-
-    data.buffer.push("\n");
-    stack1 = helpers['if'].call(depth0, "isLoading", {hash:{},hashTypes:{},hashContexts:{},inverse:self.program(3, program3, data),fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],data:data});
-    if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-    data.buffer.push("\n");
-    return buffer;
-    
-  });
+  exports['default'] = Ember.HTMLBars.template((function() {
+    var child0 = (function() {
+      return {
+        isHTMLBars: true,
+        blockParams: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        build: function build(dom) {
+          var el0 = dom.createTextNode("  Loading...\n");
+          return el0;
+        },
+        render: function render(context, env, contextualElement) {
+          var dom = env.dom;
+          dom.detectNamespace(contextualElement);
+          var fragment;
+          if (env.useFragmentCache && dom.canClone) {
+            if (this.cachedFragment === null) {
+              fragment = this.build(dom);
+              if (this.hasRendered) {
+                this.cachedFragment = fragment;
+              } else {
+                this.hasRendered = true;
+              }
+            }
+            if (this.cachedFragment) {
+              fragment = dom.cloneNode(this.cachedFragment, true);
+            }
+          } else {
+            fragment = this.build(dom);
+          }
+          return fragment;
+        }
+      };
+    }());
+    var child1 = (function() {
+      var child0 = (function() {
+        return {
+          isHTMLBars: true,
+          blockParams: 0,
+          cachedFragment: null,
+          hasRendered: false,
+          build: function build(dom) {
+            var el0 = dom.createTextNode("    There was a problem loading the files!\n");
+            return el0;
+          },
+          render: function render(context, env, contextualElement) {
+            var dom = env.dom;
+            dom.detectNamespace(contextualElement);
+            var fragment;
+            if (env.useFragmentCache && dom.canClone) {
+              if (this.cachedFragment === null) {
+                fragment = this.build(dom);
+                if (this.hasRendered) {
+                  this.cachedFragment = fragment;
+                } else {
+                  this.hasRendered = true;
+                }
+              }
+              if (this.cachedFragment) {
+                fragment = dom.cloneNode(this.cachedFragment, true);
+              }
+            } else {
+              fragment = this.build(dom);
+            }
+            return fragment;
+          }
+        };
+      }());
+      var child1 = (function() {
+        var child0 = (function() {
+          var child0 = (function() {
+            var child0 = (function() {
+              return {
+                isHTMLBars: true,
+                blockParams: 0,
+                cachedFragment: null,
+                hasRendered: false,
+                build: function build(dom) {
+                  var el0 = dom.createDocumentFragment();
+                  var el1 = dom.createTextNode("          ");
+                  dom.appendChild(el0, el1);
+                  var el1 = dom.createTextNode("\n");
+                  dom.appendChild(el0, el1);
+                  return el0;
+                },
+                render: function render(context, env, contextualElement) {
+                  var dom = env.dom;
+                  var hooks = env.hooks, content = hooks.content;
+                  dom.detectNamespace(contextualElement);
+                  var fragment;
+                  if (env.useFragmentCache && dom.canClone) {
+                    if (this.cachedFragment === null) {
+                      fragment = this.build(dom);
+                      if (this.hasRendered) {
+                        this.cachedFragment = fragment;
+                      } else {
+                        this.hasRendered = true;
+                      }
+                    }
+                    if (this.cachedFragment) {
+                      fragment = dom.cloneNode(this.cachedFragment, true);
+                    }
+                  } else {
+                    fragment = this.build(dom);
+                  }
+                  var morph0 = dom.createMorphAt(fragment,0,1,contextualElement);
+                  content(env, morph0, context, "file.name");
+                  return fragment;
+                }
+              };
+            }());
+            return {
+              isHTMLBars: true,
+              blockParams: 0,
+              cachedFragment: null,
+              hasRendered: false,
+              build: function build(dom) {
+                var el0 = dom.createDocumentFragment();
+                var el1 = dom.createTextNode("");
+                dom.appendChild(el0, el1);
+                var el1 = dom.createTextNode("");
+                dom.appendChild(el0, el1);
+                return el0;
+              },
+              render: function render(context, env, contextualElement) {
+                var dom = env.dom;
+                var hooks = env.hooks, get = hooks.get, block = hooks.block;
+                dom.detectNamespace(contextualElement);
+                var fragment;
+                if (env.useFragmentCache && dom.canClone) {
+                  if (this.cachedFragment === null) {
+                    fragment = this.build(dom);
+                    if (this.hasRendered) {
+                      this.cachedFragment = fragment;
+                    } else {
+                      this.hasRendered = true;
+                    }
+                  }
+                  if (this.cachedFragment) {
+                    fragment = dom.cloneNode(this.cachedFragment, true);
+                  }
+                } else {
+                  fragment = this.build(dom);
+                }
+                if (this.cachedFragment) { dom.repairClonedNode(fragment,[0,1]); }
+                var morph0 = dom.createMorphAt(fragment,0,1,contextualElement);
+                block(env, morph0, context, "link-to", ["repo.files", get(env, context, "file.path")], {}, child0, null);
+                return fragment;
+              }
+            };
+          }());
+          var child1 = (function() {
+            return {
+              isHTMLBars: true,
+              blockParams: 0,
+              cachedFragment: null,
+              hasRendered: false,
+              build: function build(dom) {
+                var el0 = dom.createDocumentFragment();
+                var el1 = dom.createTextNode("        ");
+                dom.appendChild(el0, el1);
+                var el1 = dom.createElement("a");
+                var el2 = dom.createTextNode("\n          ");
+                dom.appendChild(el1, el2);
+                var el2 = dom.createTextNode("\n        ");
+                dom.appendChild(el1, el2);
+                dom.appendChild(el0, el1);
+                var el1 = dom.createTextNode("\n");
+                dom.appendChild(el0, el1);
+                return el0;
+              },
+              render: function render(context, env, contextualElement) {
+                var dom = env.dom;
+                var hooks = env.hooks, get = hooks.get, element = hooks.element, content = hooks.content;
+                dom.detectNamespace(contextualElement);
+                var fragment;
+                if (env.useFragmentCache && dom.canClone) {
+                  if (this.cachedFragment === null) {
+                    fragment = this.build(dom);
+                    if (this.hasRendered) {
+                      this.cachedFragment = fragment;
+                    } else {
+                      this.hasRendered = true;
+                    }
+                  }
+                  if (this.cachedFragment) {
+                    fragment = dom.cloneNode(this.cachedFragment, true);
+                  }
+                } else {
+                  fragment = this.build(dom);
+                }
+                var element0 = dom.childAt(fragment, [1]);
+                var morph0 = dom.createMorphAt(element0,0,1);
+                element(env, element0, context, "action", ["downloadFile", get(env, context, "file.name")], {});
+                content(env, morph0, context, "file.name");
+                return fragment;
+              }
+            };
+          }());
+          return {
+            isHTMLBars: true,
+            blockParams: 1,
+            cachedFragment: null,
+            hasRendered: false,
+            build: function build(dom) {
+              var el0 = dom.createDocumentFragment();
+              var el1 = dom.createTextNode("      ");
+              dom.appendChild(el0, el1);
+              var el1 = dom.createElement("li");
+              dom.setAttribute(el1,"class","no-link");
+              var el2 = dom.createTextNode("\n");
+              dom.appendChild(el1, el2);
+              var el2 = dom.createTextNode("      ");
+              dom.appendChild(el1, el2);
+              dom.appendChild(el0, el1);
+              var el1 = dom.createTextNode("\n");
+              dom.appendChild(el0, el1);
+              return el0;
+            },
+            render: function render(context, env, contextualElement, blockArguments) {
+              var dom = env.dom;
+              var hooks = env.hooks, set = hooks.set, get = hooks.get, block = hooks.block;
+              dom.detectNamespace(contextualElement);
+              var fragment;
+              if (env.useFragmentCache && dom.canClone) {
+                if (this.cachedFragment === null) {
+                  fragment = this.build(dom);
+                  if (this.hasRendered) {
+                    this.cachedFragment = fragment;
+                  } else {
+                    this.hasRendered = true;
+                  }
+                }
+                if (this.cachedFragment) {
+                  fragment = dom.cloneNode(this.cachedFragment, true);
+                }
+              } else {
+                fragment = this.build(dom);
+              }
+              var morph0 = dom.createMorphAt(dom.childAt(fragment, [1]),0,1);
+              set(env, context, "file", blockArguments[0]);
+              block(env, morph0, context, "if", [get(env, context, "file.isFolder")], {}, child0, child1);
+              return fragment;
+            }
+          };
+        }());
+        return {
+          isHTMLBars: true,
+          blockParams: 0,
+          cachedFragment: null,
+          hasRendered: false,
+          build: function build(dom) {
+            var el0 = dom.createDocumentFragment();
+            var el1 = dom.createTextNode("\n");
+            dom.appendChild(el0, el1);
+            var el1 = dom.createTextNode("\n");
+            dom.appendChild(el0, el1);
+            return el0;
+          },
+          render: function render(context, env, contextualElement) {
+            var dom = env.dom;
+            var hooks = env.hooks, get = hooks.get, block = hooks.block;
+            dom.detectNamespace(contextualElement);
+            var fragment;
+            if (env.useFragmentCache && dom.canClone) {
+              if (this.cachedFragment === null) {
+                fragment = this.build(dom);
+                if (this.hasRendered) {
+                  this.cachedFragment = fragment;
+                } else {
+                  this.hasRendered = true;
+                }
+              }
+              if (this.cachedFragment) {
+                fragment = dom.cloneNode(this.cachedFragment, true);
+              }
+            } else {
+              fragment = this.build(dom);
+            }
+            var morph0 = dom.createMorphAt(fragment,0,1,contextualElement);
+            block(env, morph0, context, "each", [get(env, context, "files")], {}, child0, null);
+            return fragment;
+          }
+        };
+      }());
+      return {
+        isHTMLBars: true,
+        blockParams: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        build: function build(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        render: function render(context, env, contextualElement) {
+          var dom = env.dom;
+          var hooks = env.hooks, get = hooks.get, block = hooks.block;
+          dom.detectNamespace(contextualElement);
+          var fragment;
+          if (env.useFragmentCache && dom.canClone) {
+            if (this.cachedFragment === null) {
+              fragment = this.build(dom);
+              if (this.hasRendered) {
+                this.cachedFragment = fragment;
+              } else {
+                this.hasRendered = true;
+              }
+            }
+            if (this.cachedFragment) {
+              fragment = dom.cloneNode(this.cachedFragment, true);
+            }
+          } else {
+            fragment = this.build(dom);
+          }
+          if (this.cachedFragment) { dom.repairClonedNode(fragment,[1]); }
+          var morph0 = dom.createMorphAt(fragment,0,1,contextualElement);
+          block(env, morph0, context, "if", [get(env, context, "isRejected")], {}, child0, child1);
+          return fragment;
+        }
+      };
+    }());
+    return {
+      isHTMLBars: true,
+      blockParams: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      build: function build(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createTextNode("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      render: function render(context, env, contextualElement) {
+        var dom = env.dom;
+        var hooks = env.hooks, get = hooks.get, block = hooks.block;
+        dom.detectNamespace(contextualElement);
+        var fragment;
+        if (env.useFragmentCache && dom.canClone) {
+          if (this.cachedFragment === null) {
+            fragment = this.build(dom);
+            if (this.hasRendered) {
+              this.cachedFragment = fragment;
+            } else {
+              this.hasRendered = true;
+            }
+          }
+          if (this.cachedFragment) {
+            fragment = dom.cloneNode(this.cachedFragment, true);
+          }
+        } else {
+          fragment = this.build(dom);
+        }
+        if (this.cachedFragment) { dom.repairClonedNode(fragment,[0,1]); }
+        var morph0 = dom.createMorphAt(fragment,0,1,contextualElement);
+        block(env, morph0, context, "if", [get(env, context, "isLoading")], {}, child0, child1);
+        return fragment;
+      }
+    };
+  }()));
 
 });
-define('giteasy/templates/index', ['exports', 'ember'], function (exports, Ember) {
+define('giteasy/templates/index', ['exports'], function (exports) {
 
   'use strict';
 
-  exports['default'] = Ember['default'].Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
-  this.compilerInfo = [4,'>= 1.0.0'];
-  helpers = this.merge(helpers, Ember['default'].Handlebars.helpers); data = data || {};
-    var buffer = '', stack1, escapeExpression=this.escapeExpression;
-
-
-    stack1 = helpers._triageMustache.call(depth0, "outlet", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
-    if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-    data.buffer.push("\n<header class =\"site-head\" class = \"jumbotron\">\n	<h1 id =\"site-head-title\">GitEasy</h1>\n</header>\n<section class = \"container-fluid\">\n	<section id = 'login' class = \"row\">\n		<div class = \"row\">\n			<h4 id =\"site-head-sub-title\">A Gitway Drug!</h4>\n		</div>\n		<div class = \"row\">\n			<div class = \"col-sm-offset-4\">\n				<button ");
-    data.buffer.push(escapeExpression(helpers.action.call(depth0, "login", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["STRING"],data:data})));
-    data.buffer.push(" id = \"login-open-button\" >Git Started!</button>\n			</div>\n		</div>\n	</section>\n</section>\n");
-    return buffer;
-    
-  });
+  exports['default'] = Ember.HTMLBars.template((function() {
+    return {
+      isHTMLBars: true,
+      blockParams: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      build: function build(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createElement("header");
+        dom.setAttribute(el1,"class","site-head");
+        dom.setAttribute(el1,"class","jumbotron");
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("h1");
+        dom.setAttribute(el2,"id","site-head-title");
+        var el3 = dom.createTextNode("GitEasy");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("section");
+        dom.setAttribute(el1,"class","container-fluid");
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("section");
+        dom.setAttribute(el2,"id","login");
+        dom.setAttribute(el2,"class","row");
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("div");
+        dom.setAttribute(el3,"class","row");
+        var el4 = dom.createTextNode("\n      ");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createElement("h4");
+        dom.setAttribute(el4,"id","site-head-sub-title");
+        var el5 = dom.createTextNode("A Gitway Drug!");
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n    ");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("div");
+        dom.setAttribute(el3,"class","row");
+        var el4 = dom.createTextNode("\n      ");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createElement("div");
+        dom.setAttribute(el4,"class","col-sm-offset-4");
+        var el5 = dom.createTextNode("\n        ");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createElement("button");
+        var el6 = dom.createTextNode("Git Started!");
+        dom.appendChild(el5, el6);
+        dom.appendChild(el4, el5);
+        var el5 = dom.createTextNode("\n      ");
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n    ");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n  ");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      render: function render(context, env, contextualElement) {
+        var dom = env.dom;
+        var hooks = env.hooks, element = hooks.element;
+        dom.detectNamespace(contextualElement);
+        var fragment;
+        if (env.useFragmentCache && dom.canClone) {
+          if (this.cachedFragment === null) {
+            fragment = this.build(dom);
+            if (this.hasRendered) {
+              this.cachedFragment = fragment;
+            } else {
+              this.hasRendered = true;
+            }
+          }
+          if (this.cachedFragment) {
+            fragment = dom.cloneNode(this.cachedFragment, true);
+          }
+        } else {
+          fragment = this.build(dom);
+        }
+        var element0 = dom.childAt(fragment, [2, 1, 3, 1, 1]);
+        element(env, element0, context, "action", ["login"], {});
+        return fragment;
+      }
+    };
+  }()));
 
 });
-define('giteasy/templates/oauth', ['exports', 'ember'], function (exports, Ember) {
+define('giteasy/templates/oauth', ['exports'], function (exports) {
 
   'use strict';
 
-  exports['default'] = Ember['default'].Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
-  this.compilerInfo = [4,'>= 1.0.0'];
-  helpers = this.merge(helpers, Ember['default'].Handlebars.helpers); data = data || {};
-    var buffer = '', stack1;
-
-
-    stack1 = helpers._triageMustache.call(depth0, "outlet", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
-    if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-    data.buffer.push("\n");
-    return buffer;
-    
-  });
+  exports['default'] = Ember.HTMLBars.template((function() {
+    return {
+      isHTMLBars: true,
+      blockParams: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      build: function build(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createTextNode("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      render: function render(context, env, contextualElement) {
+        var dom = env.dom;
+        var hooks = env.hooks, content = hooks.content;
+        dom.detectNamespace(contextualElement);
+        var fragment;
+        if (env.useFragmentCache && dom.canClone) {
+          if (this.cachedFragment === null) {
+            fragment = this.build(dom);
+            if (this.hasRendered) {
+              this.cachedFragment = fragment;
+            } else {
+              this.hasRendered = true;
+            }
+          }
+          if (this.cachedFragment) {
+            fragment = dom.cloneNode(this.cachedFragment, true);
+          }
+        } else {
+          fragment = this.build(dom);
+        }
+        if (this.cachedFragment) { dom.repairClonedNode(fragment,[0]); }
+        var morph0 = dom.createMorphAt(fragment,0,1,contextualElement);
+        content(env, morph0, context, "outlet");
+        return fragment;
+      }
+    };
+  }()));
 
 });
-define('giteasy/templates/orgs', ['exports', 'ember'], function (exports, Ember) {
+define('giteasy/templates/orgs', ['exports'], function (exports) {
 
   'use strict';
 
-  exports['default'] = Ember['default'].Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
-  this.compilerInfo = [4,'>= 1.0.0'];
-  helpers = this.merge(helpers, Ember['default'].Handlebars.helpers); data = data || {};
-    var buffer = '', stack1, self=this;
-
-  function program1(depth0,data) {
-    
-    var buffer = '', stack1;
-    data.buffer.push("\n  <h2>");
-    stack1 = helpers._triageMustache.call(depth0, "login", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
-    if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-    data.buffer.push("</h2>\n");
-    return buffer;
-    }
-
-    stack1 = helpers.each.call(depth0, {hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[],types:[],data:data});
-    if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-    data.buffer.push("\n");
-    return buffer;
-    
-  });
+  exports['default'] = Ember.HTMLBars.template((function() {
+    var child0 = (function() {
+      return {
+        isHTMLBars: true,
+        blockParams: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        build: function build(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("  ");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createElement("h2");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        render: function render(context, env, contextualElement) {
+          var dom = env.dom;
+          var hooks = env.hooks, content = hooks.content;
+          dom.detectNamespace(contextualElement);
+          var fragment;
+          if (env.useFragmentCache && dom.canClone) {
+            if (this.cachedFragment === null) {
+              fragment = this.build(dom);
+              if (this.hasRendered) {
+                this.cachedFragment = fragment;
+              } else {
+                this.hasRendered = true;
+              }
+            }
+            if (this.cachedFragment) {
+              fragment = dom.cloneNode(this.cachedFragment, true);
+            }
+          } else {
+            fragment = this.build(dom);
+          }
+          var morph0 = dom.createMorphAt(dom.childAt(fragment, [1]),-1,-1);
+          content(env, morph0, context, "login");
+          return fragment;
+        }
+      };
+    }());
+    return {
+      isHTMLBars: true,
+      blockParams: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      build: function build(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createTextNode("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      render: function render(context, env, contextualElement) {
+        var dom = env.dom;
+        var hooks = env.hooks, block = hooks.block;
+        dom.detectNamespace(contextualElement);
+        var fragment;
+        if (env.useFragmentCache && dom.canClone) {
+          if (this.cachedFragment === null) {
+            fragment = this.build(dom);
+            if (this.hasRendered) {
+              this.cachedFragment = fragment;
+            } else {
+              this.hasRendered = true;
+            }
+          }
+          if (this.cachedFragment) {
+            fragment = dom.cloneNode(this.cachedFragment, true);
+          }
+        } else {
+          fragment = this.build(dom);
+        }
+        if (this.cachedFragment) { dom.repairClonedNode(fragment,[0,1]); }
+        var morph0 = dom.createMorphAt(fragment,0,1,contextualElement);
+        block(env, morph0, context, "each", [], {}, child0, null);
+        return fragment;
+      }
+    };
+  }()));
 
 });
-define('giteasy/templates/repo', ['exports', 'ember'], function (exports, Ember) {
+define('giteasy/templates/repo', ['exports'], function (exports) {
 
   'use strict';
 
-  exports['default'] = Ember['default'].Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
-  this.compilerInfo = [4,'>= 1.0.0'];
-  helpers = this.merge(helpers, Ember['default'].Handlebars.helpers); data = data || {};
-    var buffer = '', stack1, helper, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
-
-
-    data.buffer.push("<header class =\"site-head-sm\">\n  <h1 id =\"site-head-title-sm\">GitEasy</h1>\n</header>\n\n<section class=\"container\">\n  <section id='show-repo' class = \"row\">\n    <section id='taskbar-repo' class = \"row\">\n      <section class=\"col-sm-offset-5 col-sm-5\">\n\n        ");
-    data.buffer.push(escapeExpression((helper = helpers['file-upload'] || (depth0 && depth0['file-upload']),options={hash:{
-      'path': ("path"),
-      'repo': ("repo"),
-      'uploadSuccess': ("refreshList")
-    },hashTypes:{'path': "ID",'repo': "ID",'uploadSuccess': "STRING"},hashContexts:{'path': depth0,'repo': depth0,'uploadSuccess': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "file-upload", options))));
-    data.buffer.push("\n\n        <button class=\"toolbarIcon glyphicon glyphicon-plus\" title=\"Upload a file or folders\"></button>\n        <button class=\"toolbarIcon glyphicon glyphicon-save\" title=\"Download a file or folders\"></button>\n\n      </section>\n    </section>\n    <section id='repo-dir' class=\"row\">\n      <section class=\"col-sm-12\">\n        ");
-    stack1 = helpers._triageMustache.call(depth0, "outlet", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
-    if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-    data.buffer.push("\n      </section>\n    </section>\n  </section>\n</section>\n");
-    return buffer;
-    
-  });
+  exports['default'] = Ember.HTMLBars.template((function() {
+    return {
+      isHTMLBars: true,
+      blockParams: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      build: function build(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createElement("header");
+        dom.setAttribute(el1,"class","site-head-sm");
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("h1");
+        dom.setAttribute(el2,"id","site-head-title-sm");
+        var el3 = dom.createTextNode("GitEasy");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("div");
+        dom.setAttribute(el1,"class","container");
+        var el2 = dom.createTextNode("\n\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("button");
+        dom.setAttribute(el2,"class","toolbarIcon glyphicon glyphicon-plus");
+        dom.setAttribute(el2,"title","Upload a file or folders");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("button");
+        dom.setAttribute(el2,"class","toolbarIcon glyphicon glyphicon-save");
+        dom.setAttribute(el2,"title","Download a file or folders");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n\n");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      render: function render(context, env, contextualElement) {
+        var dom = env.dom;
+        var hooks = env.hooks, get = hooks.get, inline = hooks.inline, content = hooks.content;
+        dom.detectNamespace(contextualElement);
+        var fragment;
+        if (env.useFragmentCache && dom.canClone) {
+          if (this.cachedFragment === null) {
+            fragment = this.build(dom);
+            if (this.hasRendered) {
+              this.cachedFragment = fragment;
+            } else {
+              this.hasRendered = true;
+            }
+          }
+          if (this.cachedFragment) {
+            fragment = dom.cloneNode(this.cachedFragment, true);
+          }
+        } else {
+          fragment = this.build(dom);
+        }
+        var element0 = dom.childAt(fragment, [2]);
+        var morph0 = dom.createMorphAt(element0,0,1);
+        var morph1 = dom.createMorphAt(element0,5,6);
+        inline(env, morph0, context, "file-upload", [], {"path": get(env, context, "path"), "repo": get(env, context, "repo"), "uploadSuccess": "refreshList"});
+        content(env, morph1, context, "outlet");
+        return fragment;
+      }
+    };
+  }()));
 
 });
-define('giteasy/templates/repo/edit-file', ['exports', 'ember'], function (exports, Ember) {
+define('giteasy/templates/repo/edit-file', ['exports'], function (exports) {
 
   'use strict';
 
-  exports['default'] = Ember['default'].Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
-  this.compilerInfo = [4,'>= 1.0.0'];
-  helpers = this.merge(helpers, Ember['default'].Handlebars.helpers); data = data || {};
-    
-
-
-    data.buffer.push("test\n");
-    
-  });
+  exports['default'] = Ember.HTMLBars.template((function() {
+    return {
+      isHTMLBars: true,
+      blockParams: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      build: function build(dom) {
+        var el0 = dom.createTextNode("test\n");
+        return el0;
+      },
+      render: function render(context, env, contextualElement) {
+        var dom = env.dom;
+        dom.detectNamespace(contextualElement);
+        var fragment;
+        if (env.useFragmentCache && dom.canClone) {
+          if (this.cachedFragment === null) {
+            fragment = this.build(dom);
+            if (this.hasRendered) {
+              this.cachedFragment = fragment;
+            } else {
+              this.hasRendered = true;
+            }
+          }
+          if (this.cachedFragment) {
+            fragment = dom.cloneNode(this.cachedFragment, true);
+          }
+        } else {
+          fragment = this.build(dom);
+        }
+        return fragment;
+      }
+    };
+  }()));
 
 });
-define('giteasy/templates/repo/files', ['exports', 'ember'], function (exports, Ember) {
+define('giteasy/templates/repo/files', ['exports'], function (exports) {
 
   'use strict';
 
-  exports['default'] = Ember['default'].Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
-  this.compilerInfo = [4,'>= 1.0.0'];
-  helpers = this.merge(helpers, Ember['default'].Handlebars.helpers); data = data || {};
-    var buffer = '', helper, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
-
-
-    data.buffer.push(escapeExpression((helper = helpers['render-files'] || (depth0 && depth0['render-files']),options={hash:{
-      'repo': ("repo"),
-      'path': ("path")
-    },hashTypes:{'repo': "ID",'path': "ID"},hashContexts:{'repo': depth0,'path': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "render-files", options))));
-    data.buffer.push("\n\n");
-    return buffer;
-    
-  });
+  exports['default'] = Ember.HTMLBars.template((function() {
+    return {
+      isHTMLBars: true,
+      blockParams: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      build: function build(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createTextNode("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      render: function render(context, env, contextualElement) {
+        var dom = env.dom;
+        var hooks = env.hooks, get = hooks.get, inline = hooks.inline;
+        dom.detectNamespace(contextualElement);
+        var fragment;
+        if (env.useFragmentCache && dom.canClone) {
+          if (this.cachedFragment === null) {
+            fragment = this.build(dom);
+            if (this.hasRendered) {
+              this.cachedFragment = fragment;
+            } else {
+              this.hasRendered = true;
+            }
+          }
+          if (this.cachedFragment) {
+            fragment = dom.cloneNode(this.cachedFragment, true);
+          }
+        } else {
+          fragment = this.build(dom);
+        }
+        if (this.cachedFragment) { dom.repairClonedNode(fragment,[0]); }
+        var morph0 = dom.createMorphAt(fragment,0,1,contextualElement);
+        inline(env, morph0, context, "render-files", [], {"repo": get(env, context, "repo"), "path": get(env, context, "path")});
+        return fragment;
+      }
+    };
+  }()));
 
 });
-define('giteasy/templates/repo/index', ['exports', 'ember'], function (exports, Ember) {
+define('giteasy/templates/repo/index', ['exports'], function (exports) {
 
   'use strict';
 
-  exports['default'] = Ember['default'].Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
-  this.compilerInfo = [4,'>= 1.0.0'];
-  helpers = this.merge(helpers, Ember['default'].Handlebars.helpers); data = data || {};
-    var buffer = '', helper, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
-
-
-    data.buffer.push(escapeExpression((helper = helpers['render-files'] || (depth0 && depth0['render-files']),options={hash:{
-      'repo': ("repo"),
-      'path': ("path")
-    },hashTypes:{'repo': "ID",'path': "ID"},hashContexts:{'repo': depth0,'path': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "render-files", options))));
-    data.buffer.push("\n\n");
-    return buffer;
-    
-  });
+  exports['default'] = Ember.HTMLBars.template((function() {
+    return {
+      isHTMLBars: true,
+      blockParams: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      build: function build(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createTextNode("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      render: function render(context, env, contextualElement) {
+        var dom = env.dom;
+        var hooks = env.hooks, get = hooks.get, inline = hooks.inline;
+        dom.detectNamespace(contextualElement);
+        var fragment;
+        if (env.useFragmentCache && dom.canClone) {
+          if (this.cachedFragment === null) {
+            fragment = this.build(dom);
+            if (this.hasRendered) {
+              this.cachedFragment = fragment;
+            } else {
+              this.hasRendered = true;
+            }
+          }
+          if (this.cachedFragment) {
+            fragment = dom.cloneNode(this.cachedFragment, true);
+          }
+        } else {
+          fragment = this.build(dom);
+        }
+        if (this.cachedFragment) { dom.repairClonedNode(fragment,[0]); }
+        var morph0 = dom.createMorphAt(fragment,0,1,contextualElement);
+        inline(env, morph0, context, "render-files", [], {"repo": get(env, context, "repo"), "path": get(env, context, "path")});
+        return fragment;
+      }
+    };
+  }()));
 
 });
 define('giteasy/tests/app.jshint', function () {
@@ -2015,7 +2817,7 @@ catch(err) {
 if (runningTests) {
   require("giteasy/tests/test-helper");
 } else {
-  require("giteasy/app")["default"].create({"name":"giteasy","version":"0.0.0.812accb2"});
+  require("giteasy/app")["default"].create({"name":"giteasy","version":"0.0.0.aa0e7ed1"});
 }
 
 /* jshint ignore:end */
