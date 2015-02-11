@@ -41,6 +41,7 @@
     "morgan": "^1.5.1"
   },
   "dependencies": {
-    "query-string": "^1.0.0"
+    "query-string": "^1.0.0",
+    "node-sass": "1.2.2"
   }
 }
