@@ -8,10 +8,9 @@
     "test": "tests"
   },
   "scripts": {
-    "start": "ember server",
+    "start": "foreman start",
     "build": "ember build",
-    "test": "ember test",
-    "oauth": "node api/oauth.js"
+    "test": "ember test"
   },
   "repository": "",
   "engines": {
