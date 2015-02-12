@@ -41,6 +41,6 @@
   },
   "dependencies": {
     "query-string": "^1.0.0",
-    "node-sass": "1.2.2"
+    "node-sass": "^2.0.1"
   }
 }
