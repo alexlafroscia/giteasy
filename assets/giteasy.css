@@ -4,7 +4,7 @@
  * 2. Prevent iOS text size adjust after orientation change, without disabling
  *    user zoom.
  */
-/* line 9, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/vendor/normalize */
+/* line 9, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/vendor/normalize */
 html {
   font-family: sans-serif;
   /* 1 */
@@ -16,7 +16,7 @@ html {
 /**
  * Remove default margin.
  */
-/* line 19, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/vendor/normalize */
+/* line 19, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/vendor/normalize */
 body {
   margin: 0; }
 
@@ -28,7 +28,7 @@ body {
  * and Firefox.
  * Correct `block` display not defined for `main` in IE 11.
  */
-/* line 45, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/vendor/normalize */
+/* line 45, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/vendor/normalize */
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block; }
 
@@ -36,7 +36,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
  * 1. Correct `inline-block` display not defined in IE 8/9.
  * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
  */
-/* line 57, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/vendor/normalize */
+/* line 57, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/vendor/normalize */
 audio, canvas, progress, video {
   display: inline-block;
   /* 1 */
@@ -47,7 +47,7 @@ audio, canvas, progress, video {
  * Prevent modern browsers from displaying `audio` without controls.
  * Remove excess height in iOS 5 devices.
  */
-/* line 67, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/vendor/normalize */
+/* line 67, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/vendor/normalize */
 audio:not([controls]) {
   display: none;
   height: 0; }
@@ -56,7 +56,7 @@ audio:not([controls]) {
  * Address `[hidden]` styling not present in IE 8/9/10.
  * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
  */
-/* line 78, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/vendor/normalize */
+/* line 78, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/vendor/normalize */
 [hidden], template {
   display: none; }
 
@@ -65,14 +65,14 @@ audio:not([controls]) {
 /**
  * Remove the gray background color from active links in IE 10.
  */
-/* line 89, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/vendor/normalize */
+/* line 89, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/vendor/normalize */
 a {
   background-color: transparent; }
 
 /**
  * Improve readability when focused and also mouse hovered in all browsers.
  */
-/* line 98, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/vendor/normalize */
+/* line 98, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/vendor/normalize */
 a:active, a:hover {
   outline: 0; }
 
@@ -81,21 +81,21 @@ a:active, a:hover {
 /**
  * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
  */
-/* line 109, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/vendor/normalize */
+/* line 109, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/vendor/normalize */
 abbr[title] {
   border-bottom: 1px dotted; }
 
 /**
  * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
  */
-/* line 118, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/vendor/normalize */
+/* line 118, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/vendor/normalize */
 b, strong {
   font-weight: bold; }
 
 /**
  * Address styling not present in Safari and Chrome.
  */
-/* line 126, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/vendor/normalize */
+/* line 126, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/vendor/normalize */
 dfn {
   font-style: italic; }
 
@@ -103,7 +103,7 @@ dfn {
  * Address variable `h1` font-size and margin within `section` and `article`
  * contexts in Firefox 4+, Safari, and Chrome.
  */
-/* line 135, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/vendor/normalize */
+/* line 135, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/vendor/normalize */
 h1 {
   font-size: 2em;
   margin: 0.67em 0; }
@@ -111,7 +111,7 @@ h1 {
 /**
  * Address styling not present in IE 8/9.
  */
-/* line 144, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/vendor/normalize */
+/* line 144, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/vendor/normalize */
 mark {
   background: #ff0;
   color: #000; }
@@ -119,25 +119,25 @@ mark {
 /**
  * Address inconsistent and variable font size in all browsers.
  */
-/* line 153, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/vendor/normalize */
+/* line 153, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/vendor/normalize */
 small {
   font-size: 80%; }
 
 /**
  * Prevent `sub` and `sup` affecting `line-height` in all browsers.
  */
-/* line 162, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/vendor/normalize */
+/* line 162, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/vendor/normalize */
 sub, sup {
   font-size: 75%;
   line-height: 0;
   position: relative;
   vertical-align: baseline; }
 
-/* line 169, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/vendor/normalize */
+/* line 169, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/vendor/normalize */
 sup {
   top: -0.5em; }
 
-/* line 173, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/vendor/normalize */
+/* line 173, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/vendor/normalize */
 sub {
   bottom: -0.25em; }
 
@@ -146,14 +146,14 @@ sub {
 /**
  * Remove border when inside `a` element in IE 8/9/10.
  */
-/* line 184, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/vendor/normalize */
+/* line 184, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/vendor/normalize */
 img {
   border: 0; }
 
 /**
  * Correct overflow not hidden in IE 9/10/11.
  */
-/* line 192, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/vendor/normalize */
+/* line 192, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/vendor/normalize */
 svg:not(:root) {
   overflow: hidden; }
 
@@ -162,14 +162,14 @@ svg:not(:root) {
 /**
  * Address margin not present in IE 8/9 and Safari.
  */
-/* line 203, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/vendor/normalize */
+/* line 203, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/vendor/normalize */
 figure {
   margin: 1em 40px; }
 
 /**
  * Address differences between Firefox and other browsers.
  */
-/* line 211, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/vendor/normalize */
+/* line 211, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/vendor/normalize */
 hr {
   -moz-box-sizing: content-box;
   box-sizing: content-box;
@@ -178,14 +178,14 @@ hr {
 /**
  * Contain overflow in all browsers.
  */
-/* line 221, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/vendor/normalize */
+/* line 221, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/vendor/normalize */
 pre {
   overflow: auto; }
 
 /**
  * Address odd `em`-unit font size rendering in all browsers.
  */
-/* line 232, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/vendor/normalize */
+/* line 232, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/vendor/normalize */
 code, kbd, pre, samp {
   font-family: monospace, monospace;
   font-size: 1em; }
@@ -202,7 +202,7 @@ code, kbd, pre, samp {
  * 2. Correct font properties not being inherited.
  * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
  */
-/* line 256, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/vendor/normalize */
+/* line 256, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/vendor/normalize */
 button, input, optgroup, select, textarea {
   color: inherit;
   /* 1 */
@@ -214,7 +214,7 @@ button, input, optgroup, select, textarea {
 /**
  * Address `overflow` set to `hidden` in IE 8/9/10/11.
  */
-/* line 266, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/vendor/normalize */
+/* line 266, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/vendor/normalize */
 button {
   overflow: visible; }
 
@@ -224,7 +224,7 @@ button {
  * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
  * Correct `select` style inheritance in Firefox.
  */
-/* line 278, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/vendor/normalize */
+/* line 278, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/vendor/normalize */
 button, select {
   text-transform: none; }
 
@@ -235,7 +235,7 @@ button, select {
  * 3. Improve usability and consistency of cursor style between image-type
  *    `input` and others.
  */
-/* line 293, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/vendor/normalize */
+/* line 293, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/vendor/normalize */
 button, html input[type="button"], input[type="reset"], input[type="submit"] {
   -webkit-appearance: button;
   /* 2 */
@@ -245,14 +245,14 @@ button, html input[type="button"], input[type="reset"], input[type="submit"] {
 /**
  * Re-set default cursor for disabled elements.
  */
-/* line 303, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/vendor/normalize */
+/* line 303, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/vendor/normalize */
 button[disabled], html input[disabled] {
   cursor: default; }
 
 /**
  * Remove inner padding and border in Firefox 4+.
  */
-/* line 312, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/vendor/normalize */
+/* line 312, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/vendor/normalize */
 button::-moz-focus-inner, input::-moz-focus-inner {
   border: 0;
   padding: 0; }
@@ -261,7 +261,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
  * Address Firefox 4+ setting `line-height` on `input` using `!important` in
  * the UA stylesheet.
  */
-/* line 322, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/vendor/normalize */
+/* line 322, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/vendor/normalize */
 input {
   line-height: normal; }
 
@@ -272,7 +272,7 @@ input {
  * 1. Address box sizing set to `content-box` in IE 8/9/10.
  * 2. Remove excess padding in IE 8/9/10.
  */
-/* line 335, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/vendor/normalize */
+/* line 335, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/vendor/normalize */
 input[type="checkbox"], input[type="radio"] {
   box-sizing: border-box;
   /* 1 */
@@ -284,7 +284,7 @@ input[type="checkbox"], input[type="radio"] {
  * `font-size` values of the `input`, it causes the cursor style of the
  * decrement button to change from `default` to `text`.
  */
-/* line 347, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/vendor/normalize */
+/* line 347, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/vendor/normalize */
 input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button {
   height: auto; }
 
@@ -293,7 +293,7 @@ input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-o
  * 2. Address `box-sizing` set to `border-box` in Safari and Chrome
  *    (include `-moz` to future-proof).
  */
-/* line 357, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/vendor/normalize */
+/* line 357, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/vendor/normalize */
 input[type="search"] {
   -webkit-appearance: textfield;
   /* 1 */
@@ -307,14 +307,14 @@ input[type="search"] {
  * Safari (but not Chrome) clips the cancel button when the search input has
  * padding (and `textfield` appearance).
  */
-/* line 371, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/vendor/normalize */
+/* line 371, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/vendor/normalize */
 input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none; }
 
 /**
  * Define consistent border, margin, and padding.
  */
-/* line 379, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/vendor/normalize */
+/* line 379, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/vendor/normalize */
 fieldset {
   border: 1px solid #c0c0c0;
   margin: 0 2px;
@@ -324,7 +324,7 @@ fieldset {
  * 1. Correct `color` not being inherited in IE 8/9/10/11.
  * 2. Remove padding so people aren't caught out if they zero out fieldsets.
  */
-/* line 390, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/vendor/normalize */
+/* line 390, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/vendor/normalize */
 legend {
   border: 0;
   /* 1 */
@@ -334,7 +334,7 @@ legend {
 /**
  * Remove default vertical scrollbar in IE 8/9/10/11.
  */
-/* line 399, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/vendor/normalize */
+/* line 399, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/vendor/normalize */
 textarea {
   overflow: auto; }
 
@@ -342,7 +342,7 @@ textarea {
  * Don't inherit the `font-weight` (applied by a rule above).
  * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
  */
-/* line 408, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/vendor/normalize */
+/* line 408, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/vendor/normalize */
 optgroup {
   font-weight: bold; }
 
@@ -351,40 +351,40 @@ optgroup {
 /**
  * Remove most spacing between table cells.
  */
-/* line 419, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/vendor/normalize */
+/* line 419, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/vendor/normalize */
 table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-/* line 425, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/vendor/normalize */
+/* line 425, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/vendor/normalize */
 td, th {
   padding: 0; }
 
-/* line 1, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/components/container */
+/* line 1, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/components/container */
 .container, ul.card-list {
   margin: 0 auto;
   width: 900px; }
 
-/* line 3, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/components/card */
+/* line 3, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/components/card */
 .card, ul.card-list {
   background-color: white;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
   margin-top: 1.5em;
   margin-bottom: 1.5em; }
 
-/* line 26, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/components/card */
+/* line 26, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/components/card */
 ul.card-list {
   list-style: none;
   padding: 0; }
-  /* line 36, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/components/card */
+  /* line 36, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/components/card */
   ul.card-list li h2 {
     margin: 0;
     margin-bottom: 0.5em; }
-  /* line 42, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/components/card */
+  /* line 42, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/components/card */
   ul.card-list li.no-link {
     position: relative;
     padding: 1em; }
-    /* line 15, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/components/card */
+    /* line 15, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/components/card */
     ul.card-list li.no-link:after {
       background: #e3e9eb;
       bottom: 0;
@@ -393,7 +393,7 @@ ul.card-list {
       left: 1.75%;
       position: absolute;
       width: 96.5%; }
-  /* line 52, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/components/card */
+  /* line 52, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/components/card */
   ul.card-list li.link > a {
     box-sizing: padding-box;
     display: block;
@@ -403,7 +403,7 @@ ul.card-list {
     padding-top: 1em;
     position: relative;
     text-decoration: none; }
-    /* line 15, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/components/card */
+    /* line 15, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/components/card */
     ul.card-list li.link > a:after {
       background: #e3e9eb;
       bottom: 0;
@@ -412,11 +412,11 @@ ul.card-list {
       left: 2.5%;
       position: absolute;
       width: 95%; }
-    /* line 67, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/components/card */
+    /* line 67, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/components/card */
     ul.card-list li.link > a:hover {
       background-color: #e6ebed; }
 
-/* line 75, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/components/card */
+/* line 75, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/components/card */
 .repo-filter {
   border: none;
   box-sizing: border-box;
@@ -424,31 +424,31 @@ ul.card-list {
   padding-left: 1em;
   padding: 0.5em;
   width: 100%; }
-  /* line 83, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/components/card */
+  /* line 83, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/components/card */
   .repo-filter:focus {
     outline: none; }
 
-/* line 11, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/app.scss */
+/* line 11, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/app.scss */
 body {
   background: #ecf0f1; }
 
-/* line 15, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/app.scss */
+/* line 15, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/app.scss */
 a {
   color: inherit; }
 
-/* line 19, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/app.scss */
+/* line 19, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/app.scss */
 .navbar {
   background-color: #8E44AD;
   overflow: hidden; }
-  /* line 23, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/app.scss */
+  /* line 23, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/app.scss */
   .navbar h1 {
     font-size: 3em; }
 
-/* line 29, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/app.scss */
+/* line 29, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/app.scss */
 #login-open {
   display: none; }
 
-/* line 33, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/app.scss */
+/* line 33, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/app.scss */
 #login-open-button {
   font-family: 'Dancing Script', cursive;
   background: #8E44AD;
@@ -458,13 +458,13 @@ a {
   padding: 2%;
   text-align: center; }
 
-/* line 43, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/app.scss */
+/* line 43, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/app.scss */
 #login-open-button {
   color: #ecf0f1;
   outline: none;
   box-shadow: 5px 5px 5px #888888; }
 
-/* line 49, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/app.scss */
+/* line 49, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/app.scss */
 #login-open-button {
   line-height: 60px;
   margin: 1%;
@@ -472,14 +472,14 @@ a {
   height: 12%;
   font-size: 2em; }
 
-/* line 58, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/app.scss */
+/* line 58, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/app.scss */
 .site-head-sm {
   height: 10em;
   background-color: #8E44AD;
   margin-bottom: 1em;
   box-shadow: 5px 5px 5px #888888; }
 
-/* line 65, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/app.scss */
+/* line 65, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/app.scss */
 #site-head-title-sm {
   font-family: 'Dancing Script', cursive;
   font-size: 8em;
@@ -487,7 +487,7 @@ a {
   text-align: center;
   margin-top: 0; }
 
-/* line 73, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/app.scss */
+/* line 73, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/app.scss */
 .toolbarIcon {
   height: 5em;
   width: 8em;
@@ -498,12 +498,12 @@ a {
   text-align: center;
   color: #ecf0f1; }
 
-/* line 84, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/app.scss */
+/* line 84, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/app.scss */
 .repoTreeIcon {
   font-size: 1.5em;
   color: #8E44AD; }
 
-/* line 89, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-jvCDqeOv.tmp/app/styles/app.scss */
+/* line 89, /home/travis/build/alexlafroscia/giteasy/tmp/tree_merger-tmp_dest_dir-u7KkeL5H.tmp/app/styles/app.scss */
 .repoTreeName {
   color: #8E44AD;
   font-size: 1.5em; }
