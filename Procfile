@@ -1,3 +1,3 @@
 ember: ember server --silent
-api: node api/oauth.js
+api: node api/server.js
 
