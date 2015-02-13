@@ -2,11 +2,11 @@
 	"version": 3,
 	"file": "giteasy.css",
 	"sources": [
-		"../../tree_merger-tmp_dest_dir-SPsoRXSK.tmp/app/styles/app.scss",
-		"../../tree_merger-tmp_dest_dir-SPsoRXSK.tmp/app/styles/vendor/normalize.scss",
-		"../../tree_merger-tmp_dest_dir-SPsoRXSK.tmp/app/styles/includes/_vars.scss",
-		"../../tree_merger-tmp_dest_dir-SPsoRXSK.tmp/app/styles/components/container.scss",
-		"../../tree_merger-tmp_dest_dir-SPsoRXSK.tmp/app/styles/components/card.scss"
+		"../../tree_merger-tmp_dest_dir-ffZJVFBm.tmp/app/styles/app.scss",
+		"../../tree_merger-tmp_dest_dir-ffZJVFBm.tmp/app/styles/vendor/normalize.scss",
+		"../../tree_merger-tmp_dest_dir-ffZJVFBm.tmp/app/styles/includes/_vars.scss",
+		"../../tree_merger-tmp_dest_dir-ffZJVFBm.tmp/app/styles/components/container.scss",
+		"../../tree_merger-tmp_dest_dir-ffZJVFBm.tmp/app/styles/components/card.scss"
 	],
 	"sourcesContent": [
 		"@import 'vendor/normalize';\n\n// Incluces\n@import 'includes/vars';\n\n// Components\n@import 'components/container';\n@import 'components/card';\n\n// Base styles\nbody {\n  background: $eggshell;\n}\n\na {\n  color: inherit;\n}\n\n.navbar {\n  background-color: $purple;\n  overflow: hidden;\n\n  h1 {\n    font-size: 3em;\n  }\n}\n\n\n#login-open {\n  display: none;\n}\n\n#login-open-button {\n  font-family: $dancing-script;\n  background: $purple;\n  -moz-border-radius: 15px;\n  -webkit-border-radius: 15px;\n  cursor: pointer;\n  padding: 2%;\n  text-align: center;\n}\n\n#login-open-button {\n  color: $eggshell;\n  outline: none;\n  box-shadow: 5px 5px 5px $black;\n}\n\n#login-open-button {\n  line-height: 60px;\n  margin: 1%;\n  width: 45%;\n  height: 12%;\n  font-size: 2em;\n}\n\n//repository dir page\n.site-head-sm {\n  height: 10em;\n  background-color: $purple;\n  margin-bottom: 1em;\n  box-shadow: 5px 5px 5px $black;\n}\n\n#site-head-title-sm {\n  font-family: $dancing-script;\n  font-size: 8em;\n  color: $eggshell;\n  text-align: center;\n  margin-top: 0;\n}\n\n.toolbarIcon {\n  height: 5em;\n  width: 8em;\n  background: $purple;\n  -moz-border-radius: 13px;\n  -webkit-border-radius: 13px;\n  cursor: pointer;\n  text-align: center;\n  color: $eggshell;\n}\n\n.repoTreeIcon {\n  font-size: 1.5em;\n  color: $purple;\n}\n\n.repoTreeName {\n  color: $purple;\n  font-size: 1.5em;\n}\n",
