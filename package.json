@@ -12,9 +12,12 @@
     "build": "ember build",
     "test": "ember test"
   },
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/alexlafroscia/giteasy.git"
+  },
   "engines": {
-    "node": ">= 0.12.0"
+    "node": "0.12.0"
   },
   "author": "",
   "license": "MIT",
