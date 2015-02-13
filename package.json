@@ -21,7 +21,7 @@
   },
   "author": "",
   "license": "MIT",
-  "dependencies": {
+  "devDependencies": {
     "broccoli-asset-rev": "^2.0.0",
     "ember-cli": "0.1.12",
     "ember-cli-6to5": "^3.0.0",
@@ -39,7 +39,9 @@
     "express": "^4.8.5",
     "glob": "^4.0.5",
     "http-proxy": "^1.8.1",
-    "morgan": "^1.5.1",
+    "morgan": "^1.5.1"
+  },
+  "dependencies": {
     "query-string": "^1.0.0"
   }
 }
