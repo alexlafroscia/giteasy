@@ -2817,7 +2817,7 @@ catch(err) {
 if (runningTests) {
   require("giteasy/tests/test-helper");
 } else {
-  require("giteasy/app")["default"].create({"name":"giteasy","version":"0.0.0.56c67978"});
+  require("giteasy/app")["default"].create({"name":"giteasy","version":"0.0.0.ead43409"});
 }
 
 /* jshint ignore:end */
