@@ -19,9 +19,6 @@ install:
 script:
   - npm test
 
-after_success:
-  - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && bash deploy.sh
-
 env:
   global:
     secure: HqPhO035+UDJiMTyoxPX3Z1UDxQXZOrHQ+akgiRqYH+M0GXsAdfDxn04YmkuK1k6EsEUXmW2bk2r5ZX3BFutGbOMI1aMvrINzbzO+o4sYcMHLtxnodYMVTqfKpi4VcLABYjssVjO4RI+whbB4rhsTaKVSuKCFF4CkoLnsSwxoc4=
