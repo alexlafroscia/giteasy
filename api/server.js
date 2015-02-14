@@ -82,11 +82,12 @@ if (app.get('env') === 'development') {
 
 app.listen(app.get('port'), function() {
   if (app.get('env') === 'development') {
+    var port = app.get('port');
     console.log('+-----------------------------------------------------+');
-    console.log('+ GitEasy server started on Port 3000                 +');
+    console.log('+ GitEasy server started on Port ' + port + '                 +');
     console.log('+ Server running in development mode                  +');
     console.log('+ Proxying requests to the Ember server through Node  +');
-    console.log('+ Visit http://localhost:3000 in your browser to view +');
+    console.log('+ Visit http://localhost:' + port + ' in your browser to view +');
     console.log('+-----------------------------------------------------+');
   }
 });
