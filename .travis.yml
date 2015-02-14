@@ -1,24 +1,21 @@
----
 language: node_js
-
 sudo: false
-
 cache:
   directories:
-    - node_modules
-
+  - node_modules
 before_install:
-  - npm config set spin false
-  - npm install -g npm@^2
-
+- npm config set spin false
+- npm install -g npm@^2
 install:
-  - npm install -g bower
-  - npm install
-  - bower install
-
+- npm install -g bower
+- npm install
+- bower install
 script:
-  - npm test
-
-env:
-  global:
-    secure: HqPhO035+UDJiMTyoxPX3Z1UDxQXZOrHQ+akgiRqYH+M0GXsAdfDxn04YmkuK1k6EsEUXmW2bk2r5ZX3BFutGbOMI1aMvrINzbzO+o4sYcMHLtxnodYMVTqfKpi4VcLABYjssVjO4RI+whbB4rhsTaKVSuKCFF4CkoLnsSwxoc4=
+- npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: mvVQSWQBXiW3eb7g+W5/McUe8tTHi3khoRXPj6TkwGZZghlQnkm1Xng1wi72g63SaRiKz0aa8STTzeU31ce4QZ9O+LjFtgRAtnSv32+xkPD+MwtjFULDLDbmfl1AhLFvpxepL2WdzCc6AbM9jEZWsOw1np7c/wHyqtiUiKF1Vro=
+  app: giteasy
+  on:
+    repo: alexlafroscia/giteasy
