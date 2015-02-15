@@ -37,6 +37,14 @@ ul.card-list {
       margin: 0;
       margin-bottom: .5em;
     }
+
+    > a {
+      text-decoration: none;
+
+      > .fa {
+        padding-right: .4em;
+      }
+    }
   }
 
   li.no-link {
@@ -44,7 +52,6 @@ ul.card-list {
 
     position: relative;
     padding: $spacing;
-
   }
 
   li.link {
@@ -63,7 +70,6 @@ ul.card-list {
       }
       position: relative;
       text-decoration: none;
-
 
       &:hover {
         background-color: darken($eggshell, 2);

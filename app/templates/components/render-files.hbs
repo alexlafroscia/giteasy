@@ -13,11 +13,11 @@
       <li class="no-link">
       {{#if file.isFolder}}
         {{#link-to 'repo.files' file.path}}
-          {{file.name}}
+          {{unbound fa-icon "folder-o"}} {{file.name}}
         {{/link-to}}
       {{else}}
         <a {{action 'downloadFile' file.name}}>
-          {{file.name}}
+          {{unbound fa-icon "file-code-o"}} {{file.name}}
         </a>
       {{/if}}
       </li>
