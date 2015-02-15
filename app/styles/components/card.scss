@@ -13,7 +13,7 @@
 
 @mixin card-list-item-separator($width) {
   &:after {
-    background: darken($eggshell, 3);
+    background: $dividerColor;
     bottom: 0;
     content: '';
     height: 1px;
@@ -34,6 +34,7 @@ ul.card-list {
 
   li {
     h2 {
+      font-weight: 500;
       margin: 0;
       margin-bottom: .5em;
     }
@@ -43,6 +44,7 @@ ul.card-list {
 
       box-sizing: padding-box;
       color: $primaryTextColor;
+      cursor: pointer;
       display: block;
       overflow: hidden;
       padding: $spacing;
@@ -50,7 +52,8 @@ ul.card-list {
       text-decoration: none;
 
       &:hover {
-        background-color: darken($eggshell, 2);
+        /*background-color: darken($eggshell, 2);*/
+        color: $accentColor;
       }
 
       > .fa {
