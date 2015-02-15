@@ -17,7 +17,11 @@ if (app.get('env') === 'development') {
 }
 var githubClientSecret = process.env.GITEASY_GITHUB_CLIENT_SECRET;
 
-app.set('port', (process.env.PORT || 3000));
+if (app.get('env') === 'development') {
+  app.set('port', 3000);
+} else {
+  app.set('port', process.env.PORT);
+}
 
 // Handle OAuth with Github's API
 app.get('/api/oauth', function(req, res) {

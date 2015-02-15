@@ -1,15 +1,17 @@
-<header class ="site-head" class = "jumbotron">
-  <h1 id ="site-head-title">GitEasy</h1>
-</header>
-<section class='container-fluid'>
-  <section id='login' class='row'>
-    <div class='row'>
-      <h4 id="site-head-sub-title">A Gitway Drug!</h4>
-    </div>
-    <div class="row">
-      <div class="col-sm-offset-4">
-        <button {{action 'login'}}>Git Started!</button>
-      </div>
-    </div>
-  </section>
-</section>
+<div class="homepage">
+  <div class="container">
+    <h1>GitEasy</h1>
+    <p>The easiest way to use GitHub from your browser</p>
+  </div>
+</div>
+
+<div class="link-bar">
+  <div class="container">
+    <iframe src="https://ghbtns.com/github-btn.html?user=alexlafroscia&repo=giteasy&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+  </div>
+</div>
+
+<div class="container login-wrapper">
+  <a {{action 'login'}}>Git Started!</a>
+</div>
+

@@ -13,3 +13,13 @@ $secondaryTextColor: #727272;
 $dividerColor:       #B6B6B6;
 
 $purple: $primaryColor;
+
+@mixin materialShadow($hover: false) {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+
+  @if $hover {
+    &:hover {
+      box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.4);
+    }
+  }
+}

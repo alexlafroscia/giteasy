@@ -41,68 +41,53 @@ header {
   }
 }
 
-
-#login-open {
-  display: none;
-}
-
-#login-open-button {
-  font-family: $dancing-script;
-  background: $primaryColor;
-  -moz-border-radius: 15px;
-  -webkit-border-radius: 15px;
-  cursor: pointer;
-  padding: 2%;
-  text-align: center;
-}
-
-#login-open-button {
-  color: $eggshell;
-  outline: none;
-  box-shadow: 5px 5px 5px $black;
-}
-
-#login-open-button {
-  line-height: 60px;
-  margin: 1%;
-  width: 45%;
-  height: 12%;
-  font-size: 2em;
-}
-
-//repository dir page
-.site-head-sm {
-  height: 10em;
+.homepage {
   background-color: $primaryColor;
-  margin-bottom: 1em;
-  box-shadow: 5px 5px 5px $black;
+  padding: {
+    top: 3.5em;
+    bottom: 3.5em;
+  }
+
+  h1 {
+    color: $textPrimaryColor;
+    font-size: 4em;
+    text-align: center;
+    margin-bottom: 0;
+  }
+
+  p {
+    color: $lightPrimaryColor;
+    font-size: 1.5em;
+    text-align: center;
+  }
 }
 
-#site-head-title-sm {
-  font-family: $dancing-script;
-  font-size: 8em;
-  color: $eggshell;
+.link-bar {
+  background-color: $darkPrimaryColor;
+  padding: {
+    top: .5em;
+    bottom: .5em;
+  }
   text-align: center;
-  margin-top: 0;
 }
 
-.toolbarIcon {
-  height: 5em;
-  width: 8em;
-  background: $primaryColor;
-  -moz-border-radius: 13px;
-  -webkit-border-radius: 13px;
-  cursor: pointer;
+.login-wrapper {
   text-align: center;
-  color: $eggshell;
-}
 
-.repoTreeIcon {
-  font-size: 1.5em;
-  color: $primaryColor;
-}
+  a {
+    @include materialShadow($hover: true);
 
-.repoTreeName {
-  color: $primaryColor;
-  font-size: 1.5em;
+    background-color: $accentColor;
+    color: $primaryTextColor;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1.5em;
+    margin-top: 1em;
+    padding: 1em 2em;
+    box-shadow: 1px;
+
+    &:hover {
+      background-color: lighten($accentColor, 5);
+    }
+  }
 }
