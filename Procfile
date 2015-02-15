@@ -1,3 +1,3 @@
-ember: ember server --silent
+ember: ember server
 api: node api/server.js
 
