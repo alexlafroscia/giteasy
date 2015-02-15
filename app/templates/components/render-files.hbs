@@ -10,7 +10,7 @@
 
     {{!-- If there was no error, list the files --}}
     {{#each files as |file|}}
-      <li class="no-link">
+      <li>
       {{#if file.isFolder}}
         {{#link-to 'repo.files' file.path}}
           {{unbound fa-icon "folder-o"}} {{file.name}}

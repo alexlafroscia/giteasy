@@ -39,45 +39,30 @@ ul.card-list {
     }
 
     > a {
-      text-decoration: none;
-
-      > .fa {
-        padding-right: .4em;
-      }
-    }
-  }
-
-  li.no-link {
-    @include card-list-item-separator(96.5%);
-
-    position: relative;
-    padding: $spacing;
-  }
-
-  li.link {
-
-    > a {
       @include card-list-item-separator(95%);
 
       box-sizing: padding-box;
       color: $primaryTextColor;
       display: block;
       overflow: hidden;
-      padding: {
-        left: $spacing;
-        right: $spacing;
-        top: $spacing;
-      }
+      padding: $spacing;
       position: relative;
       text-decoration: none;
 
       &:hover {
         background-color: darken($eggshell, 2);
       }
+
+      > .fa {
+        padding-right: .4em;
+      }
+    }
+
+    p {
+      margin-bottom: 0;
     }
   }
 }
-
 
 .repo-filter {
   border: none;
