@@ -17,7 +17,7 @@ a {
 }
 
 .navbar {
-  background-color: $purple;
+  background-color: $primaryColor;
   overflow: hidden;
 
   h1 {
@@ -32,7 +32,7 @@ a {
 
 #login-open-button {
   font-family: $dancing-script;
-  background: $purple;
+  background: $primaryColor;
   -moz-border-radius: 15px;
   -webkit-border-radius: 15px;
   cursor: pointer;
@@ -57,7 +57,7 @@ a {
 //repository dir page
 .site-head-sm {
   height: 10em;
-  background-color: $purple;
+  background-color: $primaryColor;
   margin-bottom: 1em;
   box-shadow: 5px 5px 5px $black;
 }
@@ -73,7 +73,7 @@ a {
 .toolbarIcon {
   height: 5em;
   width: 8em;
-  background: $purple;
+  background: $primaryColor;
   -moz-border-radius: 13px;
   -webkit-border-radius: 13px;
   cursor: pointer;
@@ -83,10 +83,10 @@ a {
 
 .repoTreeIcon {
   font-size: 1.5em;
-  color: $purple;
+  color: $primaryColor;
 }
 
 .repoTreeName {
-  color: $purple;
+  color: $primaryColor;
   font-size: 1.5em;
 }

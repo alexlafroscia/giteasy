@@ -53,6 +53,7 @@ ul.card-list {
       @include card-list-item-separator(95%);
 
       box-sizing: padding-box;
+      color: $primaryTextColor;
       display: block;
       overflow: hidden;
       padding: {
