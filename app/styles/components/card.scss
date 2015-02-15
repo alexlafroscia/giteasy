@@ -1,6 +1,7 @@
 @import '../includes/vars';
 
 .card {
+  @include materialShadow();
   $margin-space: 1.5em;
 
   background-color: white;
