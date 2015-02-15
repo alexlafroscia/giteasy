@@ -29,9 +29,7 @@ You will need the following things properly installed on your computer.
 * `foreman start`
 * Visit your app at [http://localhost:3000](http://localhost:3000).
 
+
 ## Road Map
 
-- [ ] Add "view a file" feature
-- [ ] Add "download a file" feature
-- [ ] Add "download all files" feature
-- [ ] Add "preview a Readme" feature
+To get an idea of what features are in the pipeline for GitEasy, or to suggest a feature yourself, check out the [Issues section on the GitHub page](https://github.com/alexlafroscia/giteasy/issues?q=is%3Aopen+is%3Aissue+label%3Afeature).  To check out what features are currently under development, check out both the `feature` and `WIP` tags [here](https://github.com/alexlafroscia/giteasy/issues?q=is%3Aopen+is%3Aissue+label%3Afeature+label%3AWIP).
