@@ -16,12 +16,28 @@ a {
   color: inherit;
 }
 
+h1, h2, h3, h4 {
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+}
+
 .navbar {
   background-color: $primaryColor;
   overflow: hidden;
+  padding: {
+    top: 2em;
+    bottom: 2em;
+  }
 
   h1 {
-    font-size: 3em;
+    font-size: 2.5em;
+    color: $textPrimaryColor;
+    margin-bottom: 0;
+  }
+
+  h3 {
+    color: $lightPrimaryColor;
+    margin-top: 0;
   }
 }
 

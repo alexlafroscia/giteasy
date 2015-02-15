@@ -1,6 +1,7 @@
 <header class="navbar">
   <div class="container">
     <h1>GitEasy</h1>
+    <h3>Select a repository below to view files</h3>
   </div>
 </header>
 
@@ -9,16 +10,14 @@
 </div>
 
 <div class="container">
-  <div class="row">
-    <ul class="card-list">
-    {{#each}}
-      <li>
-        {{#link-to 'repo' owner.login name}}
-          <h2>{{name}}</h2>
-          <p>{{description}}</p>
-        {{/link-to}}
-      </li>
-    {{/each}}
-    </ul>
-  </div>
+  <ul class="card-list">
+  {{#each}}
+    <li>
+      {{#link-to 'repo' owner.login name}}
+        <h2>{{name}}</h2>
+        <p>{{description}}</p>
+      {{/link-to}}
+    </li>
+  {{/each}}
+  </ul>
 </div>
