@@ -47,6 +47,9 @@ app.get('/api/oauth', function(req, res) {
 
     postRes.on('end', function() {
       response = queryString.parse(response);
+      if (app.get('env') === 'development') {
+        console.log(response);
+      }
       res.redirect('/oauth?access_token=' + response.access_token);
     });
 
