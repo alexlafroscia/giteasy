@@ -41,8 +41,6 @@ ul.card-list {
     }
 
     > a {
-      @include card-list-item-separator(95%);
-
       box-sizing: padding-box;
       color: $primaryTextColor;
       cursor: pointer;
@@ -64,6 +62,19 @@ ul.card-list {
 
     p {
       margin-bottom: 0;
+    }
+  }
+
+  li + li {
+    > a:before {
+      $width: 95%;
+      background: $dividerColor;
+      top: 0;
+      content: '';
+      height: 1px;
+      left: (100% - $width) / 2;
+      position: absolute;
+      width: $width;
     }
   }
 }
