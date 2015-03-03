@@ -1,11 +1,13 @@
 {{#if newFiles}}
-  <div class='card'>
+  <ul class='card-list'>
     {{#each newFiles as |file|}}
-      <div class='file'>
-        {{file.name}}
-      </div>
+      <li>
+        <a>
+          {{unbound fa-icon "file-code-o"}} {{file.name}}
+        </a>
+      </li>
     {{/each}}
-  </div>
+  </ul>
 {{/if}}
 
 <ul class='card-list'>
