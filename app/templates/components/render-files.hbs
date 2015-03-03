@@ -1,7 +1,11 @@
-{{#if hasFiles}}
-  <ul class='card-list'>
-    <li>There's a file here!</li>
-  </ul>
+{{#if newFiles}}
+  <div class='card'>
+    {{#each newFiles as |file|}}
+      <div class='file'>
+        {{file.name}}
+      </div>
+    {{/each}}
+  </div>
 {{/if}}
 
 <ul class='card-list'>

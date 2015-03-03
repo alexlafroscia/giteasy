@@ -7,15 +7,9 @@ export default Ember.Mixin.create({
 
   fileIsHovering: false,
   enteredElement: null,
-  newFiles: [],
-
-
-  /**
-   * Are there files to upload?
-   */
-  hasFiles: function() {
-    return !Ember.isEmpty(this.get('newFiles'));
-  }.property('newFiles'),
+  newFiles: Ember.ArrayProxy.create({
+    content: []
+  }),
 
 
   /**
@@ -58,7 +52,10 @@ export default Ember.Mixin.create({
     event.preventDefault();
     if (this.get('enteredElement') === event.target) {
       var files = event.dataTransfer.files;
-      this.set('newFiles', this.get('newFiles').concat(files));
+      for (var i = 0; i < files.length; i++) {
+        var item = files.item(i);
+        this.get('newFiles').pushObject(item);
+      }
     }
   },
 
