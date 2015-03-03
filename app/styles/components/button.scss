@@ -1,0 +1,34 @@
+@import '../includes/vars';
+
+.button-float {
+  @include materialShadow();
+
+  $size: 2.5em;
+  $spacing: 1em;
+
+  border-radius: $size / 2;
+  bottom: $spacing;
+  color: white;
+  font-size: 1.75em;
+  height: $size;
+  line-height: $size;
+  position: fixed;
+  right: $spacing;
+  text-align: center;
+  width: $size;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.upload {
+    background-color: $accentColor;
+
+    &:hover {
+      background-color: darken($accentColor, 5);
+    }
+  }
+
+
+}
+

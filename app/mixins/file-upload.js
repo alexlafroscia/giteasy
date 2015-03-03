@@ -5,11 +5,20 @@ export default Ember.Mixin.create({
   classNames: ['file-upload'],
   classNameBindings: ['has-files:hasFiles'],
 
-  fileIsHovering: false,
-  enteredElement: null,
-  newFiles: Ember.ArrayProxy.create({
-    content: []
-  }),
+
+  /**
+   * Initialize the properties for the mixin.
+   * This is done through the constructor so that all views including the mixin
+   * do not share the same array of files.
+   */
+  init: function() {
+    this._super();
+    this.set('fileIsHovering', false);
+    this.set('enteredElement', null);
+    this.set('newFiles', Ember.ArrayProxy.create({
+      content: []
+    }));
+  },
 
 
   /**
@@ -57,13 +66,6 @@ export default Ember.Mixin.create({
         this.get('newFiles').pushObject(item);
       }
     }
-  },
-
-
-  /**
-   * Reset dragging a file onto the view
-   */
-  resetDraggingFile: function(event) {
   }
 
 });

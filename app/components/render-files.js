@@ -59,9 +59,46 @@ export default Ember.Component.extend(FileUpload, Ember.PromiseProxyMixin, {
           window.open('data:text;charset=utf-8,' + data);
         }
       });
+    },
+
+
+    /**
+     * Upload files to the repo
+     */
+    uploadFiles: function() {
+      var repo = this.get('repo');
+      var files = this.get('newFiles');
+
+      // Get path to file
+      var path = this.get('path');
+      if (path.slice(-1) === '/') {
+        path = '';
+      }
+      path += files.objectAt(0).name;
+
+      var commit = "Upload file " + files.objectAt(0).name;
+      var reader = new FileReader();
+
+      reader.onload = () => {
+        console.log('uploading the file');
+        var file = reader.result;
+
+        repo.write('master', path, file, commit, (err) => {
+          if (err) {
+            console.error(err);
+          } else {
+            this.get('newFiles').removeAt(0);
+          }
+        });
+      };
+
+      reader.onerror = function() {
+        reader.abort();
+      };
+
+      reader.readAsText(files.objectAt(0));
     }
 
   }
-
 
 });

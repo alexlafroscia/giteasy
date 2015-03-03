@@ -10,6 +10,10 @@
     top: $margin-space;
     bottom: $margin-space;
   }
+
+  .card-header + & {
+    margin-top: 5px;
+  }
 }
 
 @mixin card-list-item-separator($width) {

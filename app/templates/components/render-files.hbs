@@ -1,4 +1,5 @@
 {{#if newFiles}}
+  <h4 class='card-header'>Uploaded Files</h4>
   <ul class='card-list'>
     {{#each newFiles as |file|}}
       <li>
@@ -8,8 +9,13 @@
       </li>
     {{/each}}
   </ul>
+
+  <div {{action 'uploadFiles'}} class="button-float upload">
+    {{unbound fa-icon 'cloud-upload'}}
+  </div>
 {{/if}}
 
+<h4 class='card-header'>Repository</h4>
 <ul class='card-list'>
   {{!-- If the files are loading, show the loading state --}}
   {{#if isLoading}}
