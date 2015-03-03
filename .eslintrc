@@ -7,7 +7,8 @@
     "quotes": [2, "single"],
     "strict": 0,
     "newIsCap": false,
-    "capIsNew": false
+    "capIsNew": false,
+    "no-underscore-dangle": false
   }
 }
 
