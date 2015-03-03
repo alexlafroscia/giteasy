@@ -6,12 +6,12 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route("index", {path: "/"});
-  this.route("oauth");
-  this.route("choose", {path: "/choose"});
-  this.route("repo", {path: ":owner_id/:repo_id"}, function() {
-    this.route("editFile", {path: "files/*file_path/edit" });
-    this.route("files", {path: "files/*file_path" });
+  this.route('index', {path: '/'});
+  this.route('oauth');
+  this.route('choose', {path: '/choose'});
+  this.route('repo', {path: ':owner_id/:repo_id'}, function() {
+    this.route('editFile', {path: 'files/*file_path/edit' });
+    this.route('files', {path: 'files/*file_path' });
   });
 });
 

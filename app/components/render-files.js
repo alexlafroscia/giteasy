@@ -1,9 +1,7 @@
 import Ember from 'ember';
+import FileUpload from '../mixins/file-upload';
 
-export default Ember.Component.extend(Ember.PromiseProxyMixin, {
-
-  tagName: 'ul',
-  classNames: ['card-list'],
+export default Ember.Component.extend(FileUpload, Ember.PromiseProxyMixin, {
 
   isLoading: true,
   files: null,
@@ -41,12 +39,12 @@ export default Ember.Component.extend(Ember.PromiseProxyMixin, {
       this.set('files', contents);
       this.set('isLoading', false);
     }).catch((error) => {
-      console.error(error);
       this.set('error', error);
       this.set('isRejected', true);
       this.set('isLoading', false);
     });
   }.on('init').observes('path'),
+
 
   // Actions
   actions: {

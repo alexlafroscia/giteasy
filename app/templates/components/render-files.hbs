@@ -1,27 +1,35 @@
-{{!-- If the files are loading, show the loading state --}}
-{{#if isLoading}}
-  Loading...
-{{else}}
+{{#if hasFiles}}
+  <ul class='card-list'>
+    <li>There's a file here!</li>
+  </ul>
+{{/if}}
 
-  {{!-- Check if things resulted in a error --}}
-  {{#if isRejected}}
-    There was a problem loading the files!
+<ul class='card-list'>
+  {{!-- If the files are loading, show the loading state --}}
+  {{#if isLoading}}
+    Loading...
   {{else}}
 
-    {{!-- If there was no error, list the files --}}
-    {{#each files as |file|}}
-      <li>
-      {{#if file.isFolder}}
-        {{#link-to 'repo.files' file.path}}
-          {{unbound fa-icon "folder-o"}} {{file.name}}
-        {{/link-to}}
-      {{else}}
-        <a {{action 'downloadFile' file.name}}>
-          {{unbound fa-icon "file-code-o"}} {{file.name}}
-        </a>
-      {{/if}}
-      </li>
-    {{/each}}
+    {{!-- Check if things resulted in a error --}}
+    {{#if isRejected}}
+      There was a problem loading the files!
+    {{else}}
 
+      {{!-- If there was no error, list the files --}}
+      {{#each files as |file|}}
+        <li>
+        {{#if file.isFolder}}
+          {{#link-to 'repo.files' file.path}}
+            {{unbound fa-icon "folder-o"}} {{file.name}}
+          {{/link-to}}
+        {{else}}
+          <a {{action 'downloadFile' file.name}}>
+            {{unbound fa-icon "file-code-o"}} {{file.name}}
+          </a>
+        {{/if}}
+        </li>
+      {{/each}}
+
+    {{/if}}
   {{/if}}
-{{/if}}
+</ul>
