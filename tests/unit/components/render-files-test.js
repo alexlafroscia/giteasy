@@ -2,7 +2,7 @@ import {
   moduleForComponent,
   test
 } from 'ember-qunit';
-import RepoFixtures from '../../fixtures/repo';
+import { repos as RepoFixtures } from '../../fixtures';
 
 moduleForComponent('render-files', 'RenderFilesComponent', {
   // specify the other units that are required for this test

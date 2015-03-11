@@ -1,4 +1,4 @@
-export default [
+export const repos = [
   {
     id: 1,
     name: 'giteasy',
