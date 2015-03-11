@@ -45,6 +45,9 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     ENV.API.GITHUB_CLIENT_ID = 'ec1183f326f9641b1899';
+    ENV.googleAnalytics = {
+      webPropertyId: 'UA-50234610-2'
+    };
   }
 
   ENV.contentSecurityPolicy = {
