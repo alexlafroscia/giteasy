@@ -12,15 +12,9 @@ export default Ember.Component.extend(FileUpload, Ember.PromiseProxyMixin, {
     if (path.slice(-1) === '/') {
       path = path.substring(0, path.length - 1);
     }
-    new Ember.RSVP.Promise(function(resolve, reject) {
-      repo.contents('master', path, function(err, contents) {
-        if (!Ember.isBlank(err)) {
-          reject(err);
-        } else {
-          resolve(contents);
-        }
-      });
-    }).then(function(contents) {
+
+    this.github.request(`repos/${repo.owner.login}/${repo.name}/contents/${path}`)
+    .then(function(contents) {
       // Add the `isFolder` property to each object and resolve
       // the resulting array
       return new Ember.RSVP.resolve(contents.map(function(item) {

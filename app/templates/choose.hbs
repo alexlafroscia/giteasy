@@ -11,13 +11,15 @@
 
 <div class="container">
   <ul class="card-list">
-  {{#each}}
+  {{#each repo in content}}
     <li>
-      {{#link-to 'repo' owner.login name}}
-        <h2>{{name}}</h2>
-        {{#if description}}
-          <p>{{description}}</p>
+      {{#link-to 'repo' repo.owner.login repo.name}}
+
+        <h2>{{repo.name}}</h2>
+        {{#if repo.description}}
+          <p>{{repo.description}}</p>
         {{/if}}
+
       {{/link-to}}
     </li>
   {{/each}}
