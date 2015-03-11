@@ -1,0 +1,12 @@
+{
+  "name": "giteasy",
+  "description": "Small description for giteasy goes here",
+  "version": "0.0.0",
+  "options": {
+    "paths": [
+      "app"
+    ],
+    "exclude": "vendor",
+    "outdir": "docs"
+  }
+}
