@@ -68,7 +68,7 @@ if (app.get('env') === 'development') {
   var emberProxy = httpProxy.createProxyServer();
 
   app.get("/*", function(req, res) {
-    emberProxy.web(req, res, { target: 'http://0.0.0.0:4200' });
+    emberProxy.web(req, res, { target: 'http://0.0.0.0:5000' });
   });
 
 } else {
