@@ -2,10 +2,11 @@ import {
   moduleForComponent,
   test
 } from 'ember-qunit';
+import RepoFixtures from '../../fixtures/repo';
 
 moduleForComponent('render-files', 'RenderFilesComponent', {
   // specify the other units that are required for this test
-  // needs: ['component:foo', 'helper:bar']
+  needs: ['service:github']
 });
 
 test('it renders', function() {
@@ -13,6 +14,7 @@ test('it renders', function() {
 
   // creates the component instance
   var component = this.subject({
+    repo: RepoFixtures[0],
     path: '/'
   });
   equal(component._state, 'preRender');
