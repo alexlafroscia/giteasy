@@ -3,6 +3,8 @@ import FileUpload from '../mixins/file-upload';
 
 export default Ember.Component.extend(FileUpload, Ember.PromiseProxyMixin, {
 
+  github: Ember.inject.service(),
+
   isLoading: true,
   files: null,
 
@@ -13,7 +15,7 @@ export default Ember.Component.extend(FileUpload, Ember.PromiseProxyMixin, {
       path = path.substring(0, path.length - 1);
     }
 
-    this.github.request(`repos/${repo.owner.login}/${repo.name}/contents/${path}`)
+    this.get('github').request(`repos/${repo.owner.login}/${repo.name}/contents/${path}`)
     .then(function(contents) {
       // Add the `isFolder` property to each object and resolve
       // the resulting array
