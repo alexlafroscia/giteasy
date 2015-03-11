@@ -1,9 +1,6 @@
 import Ember from 'ember';
 
-export default Ember.ArrayController.extend({
-
-  // Sort the content by name
-  sortBy: ['name'],
+export default Ember.Controller.extend({
 
   // The filter to search by
   filter: '',
@@ -18,7 +15,7 @@ export default Ember.ArrayController.extend({
       return content;
     }
 
-    var arrangedContent = content.filter(function(item) {
+    return content.filter(function(item) {
       if (!Ember.isBlank(item.name)) {
         if (item.name.toLowerCase().indexOf(filter) >= 0) {
           return true;
@@ -33,7 +30,6 @@ export default Ember.ArrayController.extend({
 
       return false;
     });
-    return arrangedContent;
   }.property('content', 'filter')
 
 });
