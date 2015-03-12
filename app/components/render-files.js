@@ -110,7 +110,7 @@ export default Ember.Component.extend(FileUpload, Ember.PromiseProxyMixin, {
               return github.request(url, {
                 type: 'PUT',
                 data: JSON.stringify(data)
-              })
+              });
             })
             .then(function(data) {
               resolve(data);
@@ -127,7 +127,7 @@ export default Ember.Component.extend(FileUpload, Ember.PromiseProxyMixin, {
           reader.readAsText(file);
         });
       }))
-      .then((data) => {
+      .then(function(data) {
         console.debug('They all loaded');
       });
 
