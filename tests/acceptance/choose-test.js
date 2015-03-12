@@ -1,19 +1,26 @@
 import Ember from 'ember';
 import { module, test } from 'qunit';
 import startApp from 'giteasy/tests/helpers/start-app';
-import Pretender from 'pretender';
-import repoEndpoints from '../pretender/repos';
+
+// Testing
+import { defineFixture } from 'ic-ajax';
+import { repos as RepoFixtures } from '../fixtures';
 
 var application, server;
 
 module('Acceptance: Choose', {
   beforeEach: function() {
-    server = new Pretender(repoEndpoints);
+
+    // Define repos fixtures
+    defineFixture('https://api.github.com/user/repos', {
+      response: RepoFixtures,
+      textStatus: 'success'
+    });
+
     application = startApp();
   },
 
   afterEach: function() {
-    server.shutdown();
     Ember.run(application, 'destroy');
   }
 });
