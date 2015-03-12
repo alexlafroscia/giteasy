@@ -66,35 +66,71 @@ export default Ember.Component.extend(FileUpload, Ember.PromiseProxyMixin, {
     uploadFiles: function() {
       var repo = this.get('repo');
       var files = this.get('newFiles');
+      var github = this.get('github');
 
       // Get path to file
       var path = this.get('path');
       if (path.slice(-1) === '/') {
         path = '';
       }
-      path += files.objectAt(0).name;
 
-      var commit = "Upload file " + files.objectAt(0).name;
-      var reader = new FileReader();
+      // Create a promise for each file and resolve them all together
+      Ember.RSVP.all(files.map(function(file) {
+        return new Ember.RSVP.Promise(function(resolve, reject) {
+          const name = file.name;
+          const filePath = path + name;
 
-      reader.onload = () => {
-        console.log('uploading the file');
-        var file = reader.result;
+          var reader = new FileReader();
 
-        repo.write('master', path, file, commit, (err) => {
-          if (err) {
-            console.error(err);
-          } else {
-            this.get('newFiles').removeAt(0);
-          }
+          reader.onload = function() {
+            var file = reader.result;
+            const url = `repos/${repo.owner.login}/${repo.name}/contents/${filePath}`;
+
+            github.request(url)
+            .then(function(data) {
+              // GET request was successful, file exists
+              return Ember.RSVP.resolve({
+                path: filePath,
+                message: 'Updating file through GitEasy',
+                content: btoa(file),
+                sha: data.sha
+              });
+            })
+            .catch(function() {
+              // GET request failed, file is new
+              return Ember.RSVP.resolve({
+                path: filePath,
+                message: 'Updating file through GitEasy',
+                content: btoa(file),
+              });
+            })
+            .then(function(data) {
+              // Upload the file, using the data object resolved previously in
+              // the promise chain
+              return github.request(url, {
+                type: 'PUT',
+                data: JSON.stringify(data)
+              })
+            })
+            .then(function(data) {
+              resolve(data);
+            });
+          };
+
+          // Return a rejecting promise if there's an error reading the file
+          reader.onerror = function() {
+            reader.abort();
+            reject();
+          };
+
+          // Read the file
+          reader.readAsText(file);
         });
-      };
+      }))
+      .then((data) => {
+        console.debug('They all loaded');
+      });
 
-      reader.onerror = function() {
-        reader.abort();
-      };
-
-      reader.readAsText(files.objectAt(0));
     }
 
   }

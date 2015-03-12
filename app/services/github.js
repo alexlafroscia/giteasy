@@ -46,6 +46,7 @@ export default Ember.Service.extend({
       headers: {
         'Authorization': `token ${this.get('accessToken')}`
       },
+      contentType: 'application/json',
       dataType: 'json'
     };
 
