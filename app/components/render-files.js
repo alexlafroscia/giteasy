@@ -35,9 +35,11 @@ export default Ember.Component.extend(FileUpload, Ember.PromiseProxyMixin, {
       this.set('files', contents);
       this.set('isLoading', false);
     }).catch((error) => {
-      this.set('error', error);
-      this.set('isRejected', true);
-      this.set('isLoading', false);
+      if (!this.get('isDestroyed')) {
+        this.set('error', error);
+        this.set('isRejected', true);
+        this.set('isLoading', false);
+      }
     });
   }.on('init').observes('path'),
 

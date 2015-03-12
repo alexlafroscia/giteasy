@@ -9,7 +9,7 @@ moduleForComponent('render-files', 'RenderFilesComponent', {
   needs: ['service:github']
 });
 
-test('it renders', function() {
+test('it renders', function(assert) {
   expect(2);
 
   // creates the component instance
@@ -17,9 +17,9 @@ test('it renders', function() {
     repo: RepoFixtures[0],
     path: '/'
   });
-  equal(component._state, 'preRender');
+  assert.equal(component._state, 'preRender');
 
   // appends the component to the page
-  this.append();
-  equal(component._state, 'inDOM');
+  this.render();
+  assert.equal(component._state, 'inDOM');
 });
