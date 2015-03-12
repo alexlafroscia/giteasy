@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import { module, test } from 'qunit';
+import { module, test, skip } from 'qunit';
 import startApp from 'giteasy/tests/helpers/start-app';
 
 // Testing
@@ -47,7 +47,7 @@ test('Filtered repos matches input text', function(assert) {
   });
 });
 
-test('Selecting a repo list item brings you to a repo page', function(assert) {
+skip('Selecting a repo list item brings you to a repo page', function(assert) {
   visit('/choose');
   andThen(function() {
     assert.equal(currentRouteName(), 'choose', 'Started on the correct route');
