@@ -57,7 +57,8 @@ module.exports = function(environment) {
     'connect-src': "'self' https://api.github.com",
     'img-src': "'self'",
     'style-src': "'self' 'unsafe-inline'",
-    'media-src': "'self'"
+    'media-src': "'self'",
+    'frame-src': "https://ghbtns.com"
   };
 
   return ENV;
