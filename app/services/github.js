@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import { request as ajax } from 'ic-ajax';
+import config from '../config/environment';
 
 /**
  * Tools for accessing the Github API.
@@ -37,7 +38,7 @@ export default Ember.Service.extend({
    */
   request: function(url, options) {
     // Reject promise if there's no access token
-    if (Ember.isEmpty(this.get('accessToken'))) {
+    if (Ember.isEmpty(this.get('accessToken')) && config.environment !== 'test') {
       return Ember.RSVP.reject({ error: 'Access token required' });
     }
 

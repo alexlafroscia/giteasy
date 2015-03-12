@@ -127,7 +127,7 @@ export default Ember.Component.extend(FileUpload, Ember.PromiseProxyMixin, {
           reader.readAsText(file);
         });
       }))
-      .then(function(data) {
+      .then(function() {
         console.debug('They all loaded');
       });
 
