@@ -2,7 +2,9 @@
 
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
-var app = new EmberApp();
+var app = new EmberApp({
+  emberCliFontAwesome: { includeFontAwesomeAssets: false }
+});
 
 // Use `app.import` to add additional libraries to the generated
 // output files.
@@ -17,10 +19,14 @@ var app = new EmberApp();
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
 
-app.import('vendor/headerCanv.js');
-app.import('vendor/mainLogin.js');
-app.import('bower_components/ace-builds/src-noconflict/ace.js');
-app.import('bower_components/ace-builds/src-noconflict/ace.js');
-app.import('bower_components/ace-builds/src-noconflict/ace.js');
+// Add Font Awesome
+app.import('vendor/fa/font-awesome.min.css');
+app.import('vendor/fa/fontawesome-webfont.eot', { destDir: 'fonts' });
+app.import('vendor/fa/fontawesome-webfont.svg', { destDir: 'fonts' });
+app.import('vendor/fa/fontawesome-webfont.ttf', { destDir: 'fonts' });
+app.import('vendor/fa/fontawesome-webfont.woff', { destDir: 'fonts' });
+app.import('vendor/fa/fontawesome-webfont.woff2', { destDir: 'fonts' });
+app.import('vendor/fa/FontAwesome.otf', { destDir: 'fonts' });
+
 
 module.exports = app.toTree();
