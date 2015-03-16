@@ -6,9 +6,9 @@ export function initialize() {
    */
   String.prototype.contains = function(search) {
     return this.indexOf(search) >= 0;
-  }
+  };
 
-};
+}
 
 export default {
   name: 'monkeypatches',
