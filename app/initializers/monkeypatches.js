@@ -1,5 +1,3 @@
-import Ember from 'ember';
-
 export function initialize() {
 
   /**
@@ -10,7 +8,7 @@ export function initialize() {
     return this.indexOf(search) >= 0;
   }
 
-}
+};
 
 export default {
   name: 'monkeypatches',
