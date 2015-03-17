@@ -16,16 +16,12 @@ export default Ember.Controller.extend({
     }
 
     return content.filter(function(item) {
-      if (!Ember.isBlank(item.name)) {
-        if (item.name.toLowerCase().indexOf(filter) >= 0) {
-          return true;
-        }
+      if (Ember.isPresent(item.name) && item.name.toLowerCase().contains(filter)) {
+        return true;
       }
 
-      if (!Ember.isBlank(item.description)) {
-        if (item.description.toLowerCase().indexOf(filter) >= 0) {
-          return true;
-        }
+      if (Ember.isPresent(item.description) && item.description.toLowerCase().contains(filter)) {
+        return true;
       }
 
       return false;
