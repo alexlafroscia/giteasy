@@ -6,7 +6,7 @@ var Router = Ember.Router.extend(googlePageview, {
   location: config.locationType
 });
 
-Router.map(function() {
+export default Router.map(function() {
   this.route('index', {path: '/'});
   this.route('oauth');
   this.route('choose', {path: '/choose'});
@@ -15,5 +15,3 @@ Router.map(function() {
     this.route('files', {path: 'files/*file_path' });
   });
 });
-
-export default Router;

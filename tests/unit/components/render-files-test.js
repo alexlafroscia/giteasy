@@ -10,7 +10,7 @@ moduleForComponent('render-files', 'RenderFilesComponent', {
 });
 
 test('it renders', function(assert) {
-  expect(2);
+  assert.expect(2);
 
   // creates the component instance
   var component = this.subject({
