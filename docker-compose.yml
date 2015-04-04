@@ -1,0 +1,9 @@
+nginx:
+  image: nginx
+  ports:
+    - 80:80
+  volumes_from:
+    - ember
+
+ember:
+  image: ember-build:latest
