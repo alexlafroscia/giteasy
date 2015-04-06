@@ -1,9 +1,19 @@
 nginx:
   image: nginx
+  links:
+    - api
   ports:
     - 80:80
   volumes_from:
     - ember
 
 ember:
-  image: ember-build:latest
+  image: giteasy-site:latest
+
+api:
+  environment:
+    - GITEASY_GITHUB_CLIENT_SECRET:
+    - NODE_ENV: 'production'
+  image: giteasy-api:latest
+  ports:
+    - "3000:3000"
