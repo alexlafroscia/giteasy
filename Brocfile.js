@@ -28,5 +28,4 @@ app.import('vendor/fa/fontawesome-webfont.woff', { destDir: 'fonts' });
 app.import('vendor/fa/fontawesome-webfont.woff2', { destDir: 'fonts' });
 app.import('vendor/fa/FontAwesome.otf', { destDir: 'fonts' });
 
-
 module.exports = app.toTree();
