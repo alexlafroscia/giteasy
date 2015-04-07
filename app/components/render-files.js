@@ -47,19 +47,6 @@ export default Ember.Component.extend(FileUpload, Ember.PromiseProxyMixin, {
   // Actions
   actions: {
 
-    downloadFile: function(fileName) {
-      var repo = this.get('repo');
-      var path = this.get('path');
-      repo.read('master', path + fileName, function(err, data) {
-        if (!Ember.isBlank(err)) {
-          console.error(err);
-        } else {
-          window.open('data:text;charset=utf-8,' + data);
-        }
-      });
-    },
-
-
     /**
      * Upload files to the repo
      */
