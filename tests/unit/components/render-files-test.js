@@ -1,7 +1,6 @@
 import {
   moduleForComponent,
-  test,
-  skip
+  test
 } from 'ember-qunit';
 
 // Text fixtures
@@ -57,10 +56,12 @@ test('it uploads an existing file correctly', function(assert) {
 
   this.render();
 
+  QUnit.stop();
   // Test uploading the file
   component.uploadFile(FileFixtures[0], FileFixtures[0].name)
   .then(function(data) {
     assert.equal(data.name, 'octokit.rb', 'Resolve a valid file');
+    QUnit.start();
   });
 });
 
@@ -94,7 +95,7 @@ test('it uploads an existing file correctly', function(assert) {
  * but the `PUT` endpoint return a valid response, which would allow us to
  * simulate uploading a new file.
  */
-skip('it uploads a new file correctly', function(assert) {
+QUnit.skip('it uploads a new file correctly', function(assert) {
   assert.expect(1);
 
   defineFixture('https://api.github.com/repos/alexlafroscia/giteasy/contents/octokit.rb', {
