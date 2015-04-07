@@ -8,7 +8,7 @@ import { defineFixture } from 'ic-ajax';
 import { repos as RepoFixtures } from '../../fixtures';
 import { files as FileFixtures } from '../../fixtures';
 
-moduleForComponent('render-files', 'RenderFilesComponent', {
+moduleForComponent('render-files', 'Component: Render Files', {
   // specify the other units that are required for this test
   needs: ['service:github'],
 
@@ -30,11 +30,11 @@ test('it renders', function(assert) {
     repo: RepoFixtures[0],
     path: '/'
   });
-  assert.equal(component._state, 'preRender');
+  assert.equal(component._state, 'preRender', 'has the correct pre-render state');
 
   // appends the component to the page
   this.render();
-  assert.equal(component._state, 'inDOM');
+  assert.equal(component._state, 'inDOM', 'has the correct post-render state');
 });
 
 

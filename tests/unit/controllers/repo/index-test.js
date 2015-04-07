@@ -3,7 +3,7 @@ import {
   test
 } from 'ember-qunit';
 
-moduleFor('controller:repo/index', 'RepoIndexController', {
+moduleFor('controller:repo/index', 'Controller: repo/index', {
   // Specify the other units that are required for this test.
   // needs: ['controller:foo']
 });

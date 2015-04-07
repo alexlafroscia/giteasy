@@ -3,7 +3,7 @@ import {
   test
 } from 'ember-qunit';
 
-moduleFor('service:github', {
+moduleFor('service:github', 'Service: github', {
   // Specify the other units that are required for this test.
   // needs: ['service:foo']
 });

@@ -4,7 +4,7 @@ import { module, test } from 'qunit';
 
 var container, application;
 
-module('MonkeypatchesInitializer', {
+module('Initializer: monkeypatches', {
   beforeEach: function() {
     Ember.run(function() {
       application = Ember.Application.create();

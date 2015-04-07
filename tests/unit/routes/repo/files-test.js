@@ -3,7 +3,7 @@ import {
   test
 } from 'ember-qunit';
 
-moduleFor('route:repo/files', 'RepoFilesRoute', {
+moduleFor('route:repo/files', 'Route: repo/files', {
   // Specify the other units that are required for this test.
   // needs: ['controller:foo']
 });

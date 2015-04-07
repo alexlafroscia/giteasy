@@ -3,7 +3,7 @@ import {
   test
 } from 'ember-qunit';
 
-moduleFor('route:choose', 'ChooseRoute', {
+moduleFor('route:choose', 'Route: choose', {
   // Specify the other units that are required for this test.
   // needs: ['controller:foo']
 });
