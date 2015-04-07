@@ -6,7 +6,7 @@ import startApp from 'giteasy/tests/helpers/start-app';
 import { defineFixture } from 'ic-ajax';
 import { repos as RepoFixtures } from '../fixtures';
 
-var application, server;
+var application;
 
 module('Acceptance: Choose', {
   beforeEach: function() {
@@ -26,6 +26,7 @@ module('Acceptance: Choose', {
 });
 
 test('Choose page shows list of user\'s repositories', function(assert) {
+  assert.expect(2);
   visit('/choose');
 
   andThen(function() {
@@ -37,6 +38,7 @@ test('Choose page shows list of user\'s repositories', function(assert) {
 });
 
 test('Filtered repos matches input text', function(assert) {
+  assert.expect(1);
   visit('/choose');
   fillIn('.repo-filter', 'GitEasy');
 
@@ -48,6 +50,7 @@ test('Filtered repos matches input text', function(assert) {
 });
 
 skip('Selecting a repo list item brings you to a repo page', function(assert) {
+  assert.expect(2);
   visit('/choose');
   andThen(function() {
     assert.equal(currentRouteName(), 'choose', 'Started on the correct route');
