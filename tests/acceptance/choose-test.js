@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import { module, test, skip } from 'qunit';
+import { module, test } from 'qunit';
 import startApp from 'giteasy/tests/helpers/start-app';
 
 // Testing
@@ -14,6 +14,11 @@ module('Acceptance: Choose', {
     // Define repos fixtures
     defineFixture('https://api.github.com/user/repos', {
       response: RepoFixtures,
+      textStatus: 'success'
+    });
+
+    defineFixture('https://api.github.com/repos/alexlafroscia/giteasy', {
+      response: RepoFixtures[0],
       textStatus: 'success'
     });
 
@@ -49,7 +54,7 @@ test('Filtered repos matches input text', function(assert) {
   });
 });
 
-skip('Selecting a repo list item brings you to a repo page', function(assert) {
+test('Selecting a repo list item brings you to a repo page', function(assert) {
   assert.expect(2);
   visit('/choose');
   andThen(function() {
