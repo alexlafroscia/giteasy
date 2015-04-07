@@ -44,6 +44,40 @@ export default Ember.Component.extend(FileUpload, Ember.PromiseProxyMixin, {
   }.on('init').observes('path'),
 
 
+  uploadFile: function(file, filePath) {
+    const github = this.get('github');
+    const repo = this.get('repo');
+    const url = `repos/${repo.owner.login}/${repo.name}/contents/${filePath}`;
+
+    return github.request(url)
+    .then(function(data) {
+      // GET request was successful, file exists
+      return Ember.RSVP.resolve({
+        path: filePath,
+        message: 'Updating file through GitEasy',
+        content: btoa(file),
+        sha: data.sha
+      });
+    })
+    .catch(function() {
+      // GET request failed, file is new
+      return Ember.RSVP.resolve({
+        path: filePath,
+        message: 'Updating file through GitEasy',
+        content: btoa(file),
+      });
+    })
+    .then(function(data) {
+      // Upload the file, using the data object resolved previously in
+      // the promise chain
+      return github.request(url, {
+        type: 'PUT',
+        data: JSON.stringify(data)
+      });
+    });
+  },
+
+
   // Actions
   actions: {
 
@@ -51,11 +85,9 @@ export default Ember.Component.extend(FileUpload, Ember.PromiseProxyMixin, {
      * Upload files to the repo
      */
     uploadFiles: function() {
-      var repo = this.get('repo');
       var files = this.get('newFiles');
-      var github = this.get('github');
 
-      // Get path to file
+      // Get path to files
       var path = this.get('path');
       if (path.slice(-1) === '/') {
         path = '';
@@ -71,37 +103,7 @@ export default Ember.Component.extend(FileUpload, Ember.PromiseProxyMixin, {
 
           reader.onload = function() {
             var file = reader.result;
-            const url = `repos/${repo.owner.login}/${repo.name}/contents/${filePath}`;
-
-            github.request(url)
-            .then(function(data) {
-              // GET request was successful, file exists
-              return Ember.RSVP.resolve({
-                path: filePath,
-                message: 'Updating file through GitEasy',
-                content: btoa(file),
-                sha: data.sha
-              });
-            })
-            .catch(function() {
-              // GET request failed, file is new
-              return Ember.RSVP.resolve({
-                path: filePath,
-                message: 'Updating file through GitEasy',
-                content: btoa(file),
-              });
-            })
-            .then(function(data) {
-              // Upload the file, using the data object resolved previously in
-              // the promise chain
-              return github.request(url, {
-                type: 'PUT',
-                data: JSON.stringify(data)
-              });
-            })
-            .then(function(data) {
-              resolve(data);
-            });
+            this.uploadFile(file, filePath).then((data) => resolve(data));
           };
 
           // Return a rejecting promise if there's an error reading the file
@@ -114,8 +116,8 @@ export default Ember.Component.extend(FileUpload, Ember.PromiseProxyMixin, {
           reader.readAsText(file);
         });
       }))
-      .then(function() {
-        console.debug('They all loaded');
+      .then((files) => {
+        files.forEach((file) => this.get('files').pushObject(file));
       });
 
     }
