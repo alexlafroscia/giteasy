@@ -44,6 +44,7 @@ module.exports = function(environment) {
     ENV.googleAnalytics = {
       webPropertyId: 'this-is-a-test-key'
     };
+    ENV.API.GITHUB_CLIENT_ID = 'testtoken';
   }
 
   if (environment === 'production') {
