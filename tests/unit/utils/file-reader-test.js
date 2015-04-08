@@ -17,7 +17,7 @@ test('it reads the contents of a file', function(assert) {
                          window.MSBlobBuilder;
     if(e.name === 'TypeError' && window.BlobBuilder) {
       var bb = new BlobBuilder();
-      bb.append([filedata.buffer]);
+      bb.append([filedata]);
       blob = bb.getBlob('text/html');
     }
   }
