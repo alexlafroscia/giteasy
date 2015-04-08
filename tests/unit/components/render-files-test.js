@@ -55,12 +55,10 @@ test('it uploads an existing file correctly', function(assert) {
 
   this.render();
 
-  QUnit.stop();
   // Test uploading the file
-  component.uploadFile(FileFixtures[0], FileFixtures[0].name)
+  return component.uploadFile(FileFixtures[0], FileFixtures[0].name)
   .then(function(data) {
     assert.equal(data.name, 'octokit.rb', 'Resolve a valid file');
-    QUnit.start();
   });
 });
 
@@ -121,6 +119,8 @@ test('it handles the uploadFiles action properly', function(assert) {
 
   const files = [{name: 'octokit.js'}];
 
+  window.testFileReader = true;
+
   var component = this.subject({
     repo: RepoFixtures[0],
     path: '/',
@@ -131,4 +131,6 @@ test('it handles the uploadFiles action properly', function(assert) {
 
   component.set('newFiles', files);
   component.send('uploadFiles');
+
+  window.testFileReader = null;
 });
