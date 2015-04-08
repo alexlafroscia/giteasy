@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import FileUpload from '../mixins/file-upload';
+import read from '../utils/file-reader';
 
 export default Ember.Component.extend(FileUpload, Ember.PromiseProxyMixin, {
 
@@ -94,26 +95,12 @@ export default Ember.Component.extend(FileUpload, Ember.PromiseProxyMixin, {
       }
 
       // Create a promise for each file and resolve them all together
-      Ember.RSVP.all(files.map(function(file) {
-        return new Ember.RSVP.Promise(function(resolve, reject) {
-          const name = file.name;
-          const filePath = path + name;
+      Ember.RSVP.all(files.map((file) => {
+        const name = file.name;
+        const filePath = path + name;
 
-          var reader = new FileReader();
-
-          reader.onload = function() {
-            var file = reader.result;
-            this.uploadFile(file, filePath).then((data) => resolve(data));
-          };
-
-          // Return a rejecting promise if there's an error reading the file
-          reader.onerror = function() {
-            reader.abort();
-            reject();
-          };
-
-          // Read the file
-          reader.readAsText(file);
+        return read(file).then((data) => {
+          return this.uploadFile(data, filePath);
         });
       }))
       .then((files) => {

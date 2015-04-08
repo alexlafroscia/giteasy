@@ -1,7 +1,6 @@
-import {
-  moduleForComponent,
-  test
-} from 'ember-qunit';
+import Ember from 'ember';
+import { moduleForComponent, test } from 'ember-qunit';
+import { skip } from 'qunit';
 
 // Text fixtures
 import { defineFixture } from 'ic-ajax';
@@ -69,7 +68,7 @@ test('it uploads an existing file correctly', function(assert) {
 /**
  * Test if the uploader correctly handles a new file
  *
- * Hard to text due to how I detect if the file is new or old.
+ * Hard to test due to how I detect if the file is new or old.
  * At the moment, I ping Github's API with the would-be file path and, if an
  * error occurs, I know that the file must be new.  Then, I can include only the
  * properties that are needed for a new file, instead of those needed to update
@@ -95,7 +94,7 @@ test('it uploads an existing file correctly', function(assert) {
  * but the `PUT` endpoint return a valid response, which would allow us to
  * simulate uploading a new file.
  */
-QUnit.skip('it uploads a new file correctly', function(assert) {
+skip('it uploads a new file correctly', function(assert) {
   assert.expect(1);
 
   defineFixture('https://api.github.com/repos/alexlafroscia/giteasy/contents/octokit.rb', {
@@ -115,4 +114,21 @@ QUnit.skip('it uploads a new file correctly', function(assert) {
   .then(function(data) {
     assert.equal(data.name, 'octokit.rb', 'Resolve a valid file');
   });
+});
+
+test('it handles the uploadFiles action properly', function(assert) {
+  assert.expect(1);
+
+  const files = [{name: 'octokit.js'}];
+
+  var component = this.subject({
+    repo: RepoFixtures[0],
+    path: '/',
+    uploadFile: function() {
+      assert.ok(true, 'File uploader was invoked');
+    }
+  });
+
+  component.set('newFiles', files);
+  component.send('uploadFiles');
 });
