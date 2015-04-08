@@ -23,7 +23,8 @@
     "currentURL",
     "currentPath",
     "currentRouteName",
-    "QUnit"
+    "QUnit",
+    "Blob"
   ],
   "node": false,
   "browser": false,

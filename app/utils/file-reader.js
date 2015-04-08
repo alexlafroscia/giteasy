@@ -1,14 +1,9 @@
 import Ember from 'ember';
-import config from '../config/environment';
 
 export default function fileReader(file) {
-  var reader = new FileReader();
-  // Testing-specific behavior
-  if (config.environment === 'test') {
-    return Ember.RSVP.resolve(file);
-  }
+  if (window.testFileReader) { return Ember.RSVP.resolve(file); }
 
-  // If we're not in testing, actually read the file
+  var reader = new FileReader();
   return new Ember.RSVP.Promise(function(resolve, reject) {
     // If the read is successful, resolve with the result
     reader.onload = function() {
