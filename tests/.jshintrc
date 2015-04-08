@@ -24,7 +24,8 @@
     "currentPath",
     "currentRouteName",
     "QUnit",
-    "Blob"
+    "Blob",
+    "BlobBuilder"
   ],
   "node": false,
   "browser": false,
