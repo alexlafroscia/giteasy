@@ -14,10 +14,17 @@ module('Initializer: monkeypatches', {
   }
 });
 
-// Replace this with your real tests.
-test('it works', function(assert) {
+
+/**
+ * String.prototype.contains
+ *
+ * Return true/false based on whether or not a given string contains some
+ * substring.
+ */
+test('it properly patches the String primitive to add the `contains` method', function(assert) {
+  assert.expect(2);
   initialize(container, application);
 
-  // you would normally confirm the results of the initializer here
-  assert.ok(true);
+  assert.ok('giteasy'.contains('git'), 'Properly detects valid substring');
+  assert.ok(!'giteasy'.contains('ocktokit'), 'Properly detects invalid substring');
 });
