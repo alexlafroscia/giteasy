@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import FileUpload from '../mixins/file-upload';
+import read from '../utils/file-reader';
 
 export default Ember.Component.extend(FileUpload, Ember.PromiseProxyMixin, {
 
@@ -44,91 +45,66 @@ export default Ember.Component.extend(FileUpload, Ember.PromiseProxyMixin, {
   }.on('init').observes('path'),
 
 
+  uploadFile: function(file, filePath) {
+    const github = this.get('github');
+    const repo = this.get('repo');
+    const url = `repos/${repo.owner.login}/${repo.name}/contents/${filePath}`;
+
+    return github.request(url)
+    .then(function(data) {
+      // GET request was successful, file exists
+      return Ember.RSVP.resolve({
+        path: filePath,
+        message: 'Updating file through GitEasy',
+        content: btoa(file),
+        sha: data.sha
+      });
+    })
+    .catch(function() {
+      // GET request failed, file is new
+      return Ember.RSVP.resolve({
+        path: filePath,
+        message: 'Updating file through GitEasy',
+        content: btoa(file),
+      });
+    })
+    .then(function(data) {
+      // Upload the file, using the data object resolved previously in
+      // the promise chain
+      return github.request(url, {
+        type: 'PUT',
+        data: JSON.stringify(data)
+      });
+    });
+  },
+
+
   // Actions
   actions: {
-
-    downloadFile: function(fileName) {
-      var repo = this.get('repo');
-      var path = this.get('path');
-      repo.read('master', path + fileName, function(err, data) {
-        if (!Ember.isBlank(err)) {
-          console.error(err);
-        } else {
-          window.open('data:text;charset=utf-8,' + data);
-        }
-      });
-    },
-
 
     /**
      * Upload files to the repo
      */
     uploadFiles: function() {
-      var repo = this.get('repo');
       var files = this.get('newFiles');
-      var github = this.get('github');
 
-      // Get path to file
+      // Get path to files
       var path = this.get('path');
       if (path.slice(-1) === '/') {
         path = '';
       }
 
       // Create a promise for each file and resolve them all together
-      Ember.RSVP.all(files.map(function(file) {
-        return new Ember.RSVP.Promise(function(resolve, reject) {
-          const name = file.name;
-          const filePath = path + name;
+      Ember.RSVP.all(files.map((file) => {
+        const name = file.name;
+        const filePath = path + name;
 
-          var reader = new FileReader();
-
-          reader.onload = function() {
-            var file = reader.result;
-            const url = `repos/${repo.owner.login}/${repo.name}/contents/${filePath}`;
-
-            github.request(url)
-            .then(function(data) {
-              // GET request was successful, file exists
-              return Ember.RSVP.resolve({
-                path: filePath,
-                message: 'Updating file through GitEasy',
-                content: btoa(file),
-                sha: data.sha
-              });
-            })
-            .catch(function() {
-              // GET request failed, file is new
-              return Ember.RSVP.resolve({
-                path: filePath,
-                message: 'Updating file through GitEasy',
-                content: btoa(file),
-              });
-            })
-            .then(function(data) {
-              // Upload the file, using the data object resolved previously in
-              // the promise chain
-              return github.request(url, {
-                type: 'PUT',
-                data: JSON.stringify(data)
-              });
-            })
-            .then(function(data) {
-              resolve(data);
-            });
-          };
-
-          // Return a rejecting promise if there's an error reading the file
-          reader.onerror = function() {
-            reader.abort();
-            reject();
-          };
-
-          // Read the file
-          reader.readAsText(file);
+        return read(file).then((data) => {
+          return this.uploadFile(data, filePath);
         });
       }))
-      .then(function() {
-        console.debug('They all loaded');
+      .then((files) => {
+        files.forEach((file) => this.get('files').pushObject(file));
       });
 
     }

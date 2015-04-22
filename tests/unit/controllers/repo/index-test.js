@@ -1,15 +1,14 @@
-import {
-  moduleFor,
-  test
-} from 'ember-qunit';
+import { moduleFor, test } from 'ember-qunit';
 
-moduleFor('controller:repo/index', 'RepoIndexController', {
+moduleFor('controller:repo/index', 'Controller: repo/index', {
   // Specify the other units that are required for this test.
-  // needs: ['controller:foo']
+  needs: ['service:github']
 });
 
-// Replace this with your real tests.
-test('it exists', function(assert) {
+test('it gets the repo property from the session service', function(assert) {
+  assert.expect(1);
   var controller = this.subject();
-  assert.ok(controller);
+  const repo = {name: 'giteasy'};
+  controller.set('session.currentRepo', repo);
+  assert.equal(controller.get('repo'), repo, 'Repo alias is correct');
 });

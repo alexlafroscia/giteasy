@@ -4,14 +4,14 @@
     {{#each newFiles as |file|}}
       <li>
         <a>
-          {{unbound fa-icon "file-code-o"}} {{file.name}}
+          <i class="fa fa-file-code-o"></i> {{file.name}}
         </a>
       </li>
     {{/each}}
   </ul>
 
   <div {{action 'uploadFiles'}} class="button-float upload">
-    {{unbound fa-icon 'cloud-upload'}}
+    <i class='fa fa-cloud-upload'></i>
   </div>
 {{/if}}
 
@@ -32,11 +32,11 @@
         <li>
         {{#if file.isFolder}}
           {{#link-to 'repo.files' file.path}}
-            {{unbound fa-icon "folder-o"}} {{file.name}}
+            <i class="fa fa-folder-o"></i> {{file.name}}
           {{/link-to}}
         {{else}}
           <a {{action 'downloadFile' file.name}}>
-            {{unbound fa-icon "file-code-o"}} {{file.name}}
+            <i class="fa fa-file-code-o"></i> {{file.name}}
           </a>
         {{/if}}
         </li>

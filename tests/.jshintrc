@@ -4,6 +4,7 @@
     "window",
     "location",
     "setTimeout",
+    "localStorage",
     "$",
     "-Promise",
     "define",
@@ -21,7 +22,10 @@
     "andThen",
     "currentURL",
     "currentPath",
-    "currentRouteName"
+    "currentRouteName",
+    "QUnit",
+    "Blob",
+    "BlobBuilder"
   ],
   "node": false,
   "browser": false,

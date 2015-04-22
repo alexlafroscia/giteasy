@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import changeURL from '../utils/change-url';
 import config from '../config/environment';
 
 export default Ember.Controller.extend({
@@ -13,7 +14,7 @@ export default Ember.Controller.extend({
         var url = 'https://github.com/login/oauth/authorize?client_id=';
         url += config.API.GITHUB_CLIENT_ID;
         url += '&scope=user,repo';
-        location.href = url;
+        changeURL(url);
       }
     }
   }

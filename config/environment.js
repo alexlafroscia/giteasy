@@ -41,6 +41,10 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.APP.rootElement = '#ember-testing';
+    ENV.googleAnalytics = {
+      webPropertyId: 'this-is-a-test-key'
+    };
+    ENV.API.GITHUB_CLIENT_ID = 'testtoken';
   }
 
   if (environment === 'production') {
